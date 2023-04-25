@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :artists
   resources :paintings
   resources :museums, only: [:create, :index, :show]
   # Routing logic: fallback requests for React Router.
