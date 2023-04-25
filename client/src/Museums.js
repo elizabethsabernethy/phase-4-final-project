@@ -10,7 +10,7 @@ function Museums(){
     },[])
 
     return(
-        <div>
+        <div id="museums-container">
             {museums.map((museum)=>{
                 return <div className="museum" key={museum.id}>
                     <h3 className="museum-name">{museum.name}</h3>
