@@ -4,3 +4,39 @@ body {
   color: antiquewhite;
 }
 
+#museums-container{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  align-items: center;
+}
+
+.museum{
+  flex-direction: column;
+  background-color: antiquewhite;
+  color: rgb(2, 54, 59);
+  margin: 15px;
+  padding: 15px;
+  flex: 1;
+  max-width: 350px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.view-paintings{
+  margin-top: 12px;
+  width: 300px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 100;
+  background-color: rgb(60, 126, 132);
+  color: white;
+  border: 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.museum-name{
+  font-size: xx-large;
+  margin: 15px;
+}
+
