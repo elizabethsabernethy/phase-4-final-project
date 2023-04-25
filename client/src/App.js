@@ -9,7 +9,8 @@ function App() {
     <div>
         <NavBar />
       <Routes>
-        <Route path="/museums" element={<Museums/>}/>
+        <Route path="/museums" element={<Museums/>}/> 
+        <Route path="/museums/:museum_id/paintings" element={<Paintings/>}/>
         <Route path="/paintings" element={<Paintings/>}/>
         <Route path="/my-art" element={<Museums/>}/>
         <Route path="/" element={<Home />}/>
