@@ -5,7 +5,12 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
 
     def index
-        paintings = Painting.all.order(title: :asc)
+        if params[:museum_id]
+            museum = Museum.find(params[:museum_id])
+            paintings = museum.paintings
+          else
+            paintings = Painting.all.order(title: :asc)
+          end
         render json: paintings, include: [:museum, :artist]
     end
 
