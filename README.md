@@ -1,35 +1,32 @@
 
-  # The Art of Collection
+  # Off the arts
 
   # ** include react routing and required nav component **
   
-  - a user can become a collector by signing up
-  - a collector should be able to login and remain logged in
-  - a collector should be able to logout
+  - an artist can sign up
+  - an artist should be able to login and remain logged in
+  - an artist should be able to logout
 
 
-  - collector can delete painting
-  - collector can update painting name, museum, or artist
+  - an artist can delete painting
+  - an artist can update painting info
 
-  - collector can view all paintings in their collection
-  - collector can view one specific painting in their collection
+  - an artist can view all paintings in their collection
+  - an artist can view one specific painting in their collection
 
-  - collector can view all paintings from all museums
-  - collector can view all paintings from one museum
-  - collector can view one specific painting from a museum
+  
+  - user can view one specific painting from a museum
 
   # backend done -collector can view all museums 
   # backend done -collector can view one museum
   # backend done -collector can add museum to list
 
-  - collector can add a painting from a museum to their collection, or see that a painting is already in their collection
-
 - Add a painting form (only if signed in)
-  - collector adds name and artist through text input box
-  - collector adds museum through dropdown selction
-  - painting is added to collectors collection
+  - an artist adds name and description through text input box
+  - an artist adds museum through dropdown selction
+  - painting is added to an artist collection
 
-  - In paintings page: user/collector can filter paintings by title (search bar), artists (last name a-f, g-m, n-s, t-z), museum (search bar), or not in my collection (toggle) (if signed in)
+  - In paintings page: user can filter paintings by title (search bar), artists (last name a-f, g-m, n-s, t-z), museum (search bar), or in my collection (toggle) (if signed in)
 
  ** alphabetical pagination -- fetch request
 
@@ -42,9 +39,9 @@
   - In my collection page: collector  can filter paintings by title (search bar), artists (last name a-f, g-m, n-s, t-z), museum (search bar)
 
   # Models: https://dbdiagram.io/d/644693086b319470511aa29a
-  1. Museums= has_many :paintings, has_many :collectors, through: :paintings
-  2. Collectors= has_many :paintings, has_many :museums, through: :paintings
-  3. Paintings= belongs_to :museum, belongs_to :collector (joins table)
+  1. Museums= has_many :paintings, has_many :artists, through: :paintings
+  2. Artists= has_many :paintings, has_many :museums, through :paintings
+  3. Paintings= belongs_to :museum, belongs_to :artist (joins table)
 
 
 ## Museum add button at bottom of museum, with single input box for name
@@ -52,7 +49,7 @@
 
 # Validations
 - Museum : must have name and be unique
-- Collector: must have unqiue username
+- Artist: must have unqiue username
 - Painting: must have title, artist, museum, and img_url
 
 Use controller validations to alter back end json response to front end. The response should pass your object if the creation, update, or deletion succeeds. However, the response should pass error messages to the front end and display them if the action fails. HINT: Utilize record.errors.
