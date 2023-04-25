@@ -3,6 +3,7 @@ class ArtistsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
 
+  
 
     def render_invalid_response(invalid)
         render json: { error: invalid.record.errors.messages}, status: :unprocessable_entity
