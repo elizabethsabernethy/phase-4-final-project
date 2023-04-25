@@ -1,5 +1,7 @@
 
   # The Art of Collection
+
+  # ** include react routing and required nav component **
   
   - a user can become a collector by signing up
   - a collector should be able to login and remain logged in
