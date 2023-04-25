@@ -46,7 +46,7 @@ Use controller validations to alter back end json response to front end. The res
 Properly update front end state upon successful response from a POST, PATCH, or DELETE request. That is to say, you should NOT rely on another GET request or redirect to update front end state of your application.
 
 # Frontend Routes
- - Homepage with blurb about site and sign up option and nav bar ----> Homepage / Museums / Paintings / My Collection (My collection only shows up if user is signed in)
+ - Homepage with blurb about site and sign up option, App houses nav bar ----> Homepage / Museums / Paintings / My Collection (My collection only shows up if user is signed in)
 
 Implement authentication/authorization, including password protection. A user must be able to:
 sign up with a new user account,
