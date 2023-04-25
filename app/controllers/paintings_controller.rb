@@ -6,7 +6,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
     def index
         paintings = Painting.all.order(title: :asc)
-        render json: paintings
+        render json: paintings, include: [:museum, :artist]
     end
 
     def show
@@ -22,7 +22,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
     private
 
     def painting_params
-        params.permit(:title, :img_url, :description)
+        params.permit(:title, :img_url, :description, :artist_id, :museum_id)
     end
 
     def render_invalid_response(invalid)
