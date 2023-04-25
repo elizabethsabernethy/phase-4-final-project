@@ -15,7 +15,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
     end
 
     def create
-        painting = painting.create!(painting_params)
+        painting = Painting.create!(painting_params)
         render json: painting, status: :created
     end
 
