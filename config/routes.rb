@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :paintings
   resources :museums, only: [:create, :index, :show]
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
