@@ -11,12 +11,12 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
     def show
         painting = Painting.find(params[:id])
-        render json: painting
+        render json: painting, include: [:museum, :artist]
     end
 
     def create
         painting = Painting.create!(painting_params)
-        render json: painting, status: :created
+        render json: painting, include: [:museum, :artist], status: :created
     end
 
     private
