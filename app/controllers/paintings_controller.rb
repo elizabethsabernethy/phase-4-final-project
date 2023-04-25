@@ -5,7 +5,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
 
     def index
-        paintings = Painting.all.order(name: :asc)
+        paintings = Painting.all.order(title: :asc)
         render json: paintings
     end
 
