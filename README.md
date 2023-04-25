@@ -31,6 +31,14 @@
 
   - In paintings page: user/collector can filter paintings by title (search bar), artists (last name a-f, g-m, n-s, t-z), museum (search bar), or not in my collection (toggle) (if signed in)
 
+ ** alphabetical pagination -- fetch request
+
+ ** fetches within ruby, within seed file... pull data and loop through, API that has museums and/or paintings
+
+ ** building instances w/o needed belongs_to
+
+ ** db:rollback db:drop
+
   - In my collection page: collector  can filter paintings by title (search bar), artists (last name a-f, g-m, n-s, t-z), museum (search bar)
 
   # Models: https://dbdiagram.io/d/644693086b319470511aa29a

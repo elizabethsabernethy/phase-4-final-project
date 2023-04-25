@@ -4,7 +4,7 @@ function Museums(){
     const[museums, setMuseums] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:9292/museums')
+        fetch('http://localhost:3000/museums')
         .then((resp) => resp.json())
         .then((museums) => console.log(museums))
     },[])
