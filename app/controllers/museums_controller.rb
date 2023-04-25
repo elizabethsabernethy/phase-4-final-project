@@ -5,12 +5,12 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
     def index
         museums = Museum.all.order(name: :desc)
-        render json: museums, include: :paintings
+        render json: museums #, include: :paintings
     end
 
     def show
         museum = Museum.find(params[:id])
-        render json: museum, include: :paintings
+        render json: museum #, include: :paintings
     end
 
     def create
