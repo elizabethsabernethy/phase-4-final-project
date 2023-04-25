@@ -33,7 +33,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
     private
 
     def museum_params
-        params.permit(:name)
+        params.permit(:name, :img_url, :location)
     end
 
     def render_invalid_response(invalid)
