@@ -18,6 +18,18 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
         render json: museum, include: :paintings, status: :created
     end
 
+    def update
+        museum = Museum.find(params[:id])
+        museum.update!(museum_params)
+        render json: museum, include: :paintings, status: :updated
+    end
+
+    def destroy
+        museum = Museum.find(params[:id])
+        museum.destroy
+        head :no_content
+    end
+
     private
 
     def museum_params
