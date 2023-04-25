@@ -18,6 +18,18 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
         painting = Painting.create!(painting_params)
         render json: painting, include: [:museum, :artist], status: :created
     end
+    
+    def update
+        painting = Painting.find(params[:id])
+        painting.update!(painting_params)
+        render json: painting, include: [:museum, :artist], status: :updated
+    end
+
+    def destroy
+        painting = Painting.find(params[:id])
+        painting.destroy
+        head :no_content
+    end
 
     private
 
