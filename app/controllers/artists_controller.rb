@@ -2,7 +2,6 @@ class ArtistsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
-
     def index
         artists = Artist.all.order(name: :asc)
         render json: artists, include: :paintings
@@ -16,6 +15,18 @@ class ArtistsController < ApplicationController
     def create
         artist = Artist.create!(artist_params)
         render json: artist, include: :paintings, status: :created
+    end
+
+    def update
+        artist = Artist.find(params[:id])
+        artist.update!(artist_params)
+        render json: artist, include: :paintings, status: :updated
+    end
+
+    def destroy
+        artist = Artist.find(params[:id])
+        artist.destroy
+        head :no_content
     end
 
     private
