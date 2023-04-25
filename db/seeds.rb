@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-museum1 = Museum.create({name: "Louvre"})
-museum2 = Museum.create({name: "Smithsonian"})
-museum3 = Museum.create({name: "Art Place"})
+museum1 = Museum.create({name: "Louvre", img_url: "https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg", location: "Paris, France"})
+museum2 = Museum.create({name: "Smithsonian", img_url: "https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg", location: "Chicago, USA"})
+museum3 = Museum.create({name: "Art Place", img_url: "https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg", location: "Milan, Italy"})
 
 artist1 = Artist.create({name: "Sam Jones", username: "pippy_longbrush", password_digest: "Art_1s_L1FE!"})
 

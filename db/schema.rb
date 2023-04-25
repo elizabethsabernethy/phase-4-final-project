@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2023_04_25_160545) do
 
   create_table "museums", force: :cascade do |t|
     t.string "name"
+    t.string "img_url"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
