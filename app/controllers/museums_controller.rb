@@ -4,7 +4,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
     def index
-        museums = Museum.all.order(name: :desc)
+        museums = Museum.all.order(name: :asc)
         render json: museums #, include: :paintings
     end
 
