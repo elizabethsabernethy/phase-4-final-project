@@ -18,6 +18,10 @@
   - collector can view all paintings from one museum
   - collector can view one specific painting from a museum
 
+  # backend done -collector can view all museums 
+  # backend done -collector can view one museum
+  # backend done -collector can add museum to list
+
   - collector can add a painting from a museum to their collection, or see that a painting is already in their collection
 
 - Add a painting form (only if signed in)
