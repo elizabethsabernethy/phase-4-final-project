@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :artists
+  resources :artists do
+    resources :paintings, only: [:index, :show]
+    resources :museums, only: [:index]
+  end
   resources :paintings
   resources :museums do
     resources :paintings, only: [:index, :show]
