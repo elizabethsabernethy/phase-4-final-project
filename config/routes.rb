@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  resources :artists do
-    resources :paintings, only: [:index, :show]
-    resources :museums, only: [:index]
+  resources :artists, except: [:create, :show] do
+    resources :paintings, only: [:index]
   end
-  resources :paintings
+  resources :paintings, only: [:index]
   resources :museums do
-    resources :paintings, only: [:index, :show]
+    resources :paintings, only: [:index]
   end
+
+post "/signup", to: "artists#create"
+get "/profile", to: "artists#show"
+
+post "/login", to: "sessions#create"
+delete "/logout", to: "sessions#destroy"
+
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
