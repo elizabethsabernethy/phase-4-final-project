@@ -1,4 +1,13 @@
-function Paintings({paintings}){
+import { useState, useEffect } from "react"
+
+function Paintings(){
+    const[paintings, setPaintings] = useState([])
+
+    useEffect(()=>{
+      fetch('http://localhost:3000/paintings')
+      .then((resp) => resp.json())
+      .then((paintings) => setPaintings(paintings))
+  },[])
 
     return(
         <div id="paintings-container">
