@@ -11,7 +11,7 @@ function Paintings(){
 
     return(
         <div>
-            <div id="paintings-header-container">
+            <div className="name-container">
                 <h1>Featured Paintings</h1>
             </div>
             <div id="paintings-container">

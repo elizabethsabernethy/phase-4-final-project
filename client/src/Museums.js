@@ -11,11 +11,17 @@ const[museums, setMuseums] = useState([])
 },[])
 
     return(
-        <div id="museums-container">
+        <div>
+            <div className="name-container">
+                <h1>Featured Museums</h1>
+            </div>
+            <div id="museums-container">
             {museums.map((museum)=>{
                 return <Museum museum={museum} key={museum.id}/>
             })}
         </div>
+        </div>
+        
     )
 }
 

@@ -16,7 +16,7 @@ function ArtistPaintingCollection(){
 
     return(
         <div>
-            <div id="artist-name-container">
+            <div className="name-container">
                 <h1>Paintings by {artistName[0]}</h1>
             </div>
             <div id="artist-paintings-container">

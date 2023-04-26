@@ -11,11 +11,17 @@ function Artists(){
   },[])
 
     return(
-        <div id="artists-container">
+        <div>
+            <div className="name-container">
+                <h1>Featured Artists</h1>
+            </div>
+            <div id="artists-container">
             {artists.map((artist)=>{
                 return <Artist artist={artist} key={artist.id}/>
             })}
         </div>
+        </div>
+        
     )
 }
 

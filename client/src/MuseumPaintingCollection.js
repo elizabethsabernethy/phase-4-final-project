@@ -16,8 +16,8 @@ function MuseumPaintingCollection(){
 
     return(
         <div>
-             <div id="museum-name-container">
-                    <h1>{museumName} Collection</h1>
+             <div className="name-container">
+                    <h1>{museumName[0]} Collection</h1>
             </div>
             <div id="museum-paintings-container">
             {paintings.map((painting)=>{
