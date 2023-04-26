@@ -25,12 +25,19 @@ function App() {
   return (
     <div>
         <NavBar />
-      <Routes>
-        <Route path="/museums" element={<Museums museums={museums}/>}/> 
-        <Route path="/paintings" element={<Paintings paintings={paintings}/>}/>
-        <Route path="/my-art" element={<Museums/>}/>
-        <Route path="/" element={<Home />}/>
-      </Routes>
+        <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='museums' element={<Museums museums={museums}/>}>
+                    <Route path=':museumId' element={<Museums museums={museums}/>}>
+                        <Route index element={<Museums museums={museums}/>} />
+                        <Route path='paintings' element={<Paintings paintings={paintings}/>} />
+                    </Route>
+                </Route>
+                <Route path='paintings' element={<Paintings paintings={paintings}/>}>
+                </Route>
+                <Route path='my-art' element={<Paintings paintings={paintings}/>}>
+                </Route>
+            </Routes>
     </div>
   );
 }
