@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import Artist from "./Artist"
 
 function Artists(){
     const[artists, setArtists] = useState([])
@@ -12,12 +13,7 @@ function Artists(){
     return(
         <div id="artists-container">
             {artists.map((artist)=>{
-                return <div className="artist" key={artist.id}>
-                    <h3 className="artist-name">{artist.name}</h3>
-                    <p className="artist-username">@{artist.username}</p>
-                    <button className="view-paintings">View ({artist.paintings.length}) paintings</button>
-                    <p className="artist-museums">Paintings on display at: {artist.name}</p>
-                </div>
+                return <Artist artist={artist} key={artist.id}/>
             })}
         </div>
     )
