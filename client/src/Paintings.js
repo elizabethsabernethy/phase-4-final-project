@@ -10,7 +10,11 @@ function Paintings(){
   },[])
 
     return(
-        <div id="paintings-container">
+        <div>
+            <div id="paintings-header-container">
+                <h1>Featured Paintings</h1>
+            </div>
+            <div id="paintings-container">
             {paintings.map((painting)=>{
                 return <div className="painting" key={painting.id}>
                     <img className="painting-img" src={painting.img_url} alt={painting.title} width="350px"></img>
@@ -21,6 +25,8 @@ function Paintings(){
                 </div>
             })}
         </div>
+        </div>
+        
     )
 }
 
