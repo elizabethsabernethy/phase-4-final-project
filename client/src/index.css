@@ -4,14 +4,14 @@ body {
   color: antiquewhite;
 }
 
-#museums-container, #paintings-container{
+#museums-container, #paintings-container, #artists-container, #artist-paintings-container, #museum-paintings-container{
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
   align-items: center;
 }
 
-.museum, .painting{
+.museum, .painting, .artist{
   flex-direction: column;
   background-color: antiquewhite;
   color: rgb(2, 54, 59);
