@@ -7,8 +7,21 @@ import MuseumPaintingCollection from "./MuseumPaintingCollection";
 import Artists from "./Artists";
 import ArtistPaintingCollection from "./ArtistPaintingCollection";
 import PageNotFound from "./PageNotFound";
+import LoginOrSignupPage from "./LoginOrSignupPage";
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  if (!user) return <LoginOrSignupPage onLogin={setUser} />;
 
   return (
     <div>
