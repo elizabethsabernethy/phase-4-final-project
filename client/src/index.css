@@ -100,5 +100,25 @@ padding: 5px;
   right: 225px;
 }
 
+#app-header{
+  position: relative;
+}
+
+#app-header > button{
+  position: absolute;
+  right: 30px;
+  top: 0px;
+  margin-top: 12px;
+  width: 200px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  color: rgb(60, 126, 132);
+  background-color: antiquewhite;
+  border: 0;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
 
 

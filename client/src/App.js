@@ -12,7 +12,11 @@ function App() {
 
   return (
     <div>
+      <div id="app-header">
         <NavBar />
+        <button>Login or Signup</button>
+      </div>
+        
         <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='museums' element={<Museums/>}/>
