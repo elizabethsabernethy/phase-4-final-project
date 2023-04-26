@@ -1,7 +1,7 @@
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 
-function LoginOrSignupPage(){
+function LoginOrSignupPage({onLogin}){
 
  const [showLogin, setShowLogin] = useState(true);
 
