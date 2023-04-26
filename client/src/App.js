@@ -3,6 +3,7 @@ import Museums from "./Museums";
 import NavBar from "./NavBar";
 import {Route, Routes} from "react-router-dom";
 import Paintings from "./Paintings";
+import MuseumPaintingCollection from "./MuseumPaintingCollection";
 
 function App() {
 
@@ -11,16 +12,10 @@ function App() {
         <NavBar />
         <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='museums' element={<Museums/>}>
-                    <Route path=':museumId' element={<Museums/>}>
-                        <Route index element={<Museums/>} />
-                        <Route path='paintings' element={<Paintings/>} />
-                    </Route>
-                </Route>
-                <Route path='paintings' element={<Paintings/>}>
-                </Route>
-                <Route path='my-art' element={<Paintings/>}>
-                </Route>
+                <Route path='museums' element={<Museums/>}/>
+                <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection/>}/>
+                <Route path='paintings' element={<Paintings/>}/>
+                <Route path='my-art' element={<Paintings/>}/>
             </Routes>
     </div>
   );
