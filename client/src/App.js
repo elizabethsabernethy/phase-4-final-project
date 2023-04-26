@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import Paintings from "./Paintings";
 import MuseumPaintingCollection from "./MuseumPaintingCollection";
 import Artists from "./Artists";
+import ArtistPaintingCollection from "./ArtistPaintingCollection";
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
                 <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection/>}/>
                 <Route path='paintings' element={<Paintings/>}/>
                 <Route path='artists' element={<Artists/>}/>
-                <Route path='artists/:artist_id/paintings' element={<MuseumPaintingCollection/>}/>
+                <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection/>}/>
                 <Route path='my-art' element={<Paintings/>}/>
             </Routes>
     </div>
