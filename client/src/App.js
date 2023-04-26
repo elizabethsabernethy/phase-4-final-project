@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Home from "./Home";
 import Museums from "./Museums";
 import NavBar from "./NavBar";
