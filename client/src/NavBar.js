@@ -34,6 +34,12 @@ function NavBar(){
                 Paintings
             </NavLink>
             <NavLink
+            to="/artists"
+            style={linkStyles}
+            >
+                Artists
+            </NavLink>
+            <NavLink
             to="/my-art"
             style={linkStyles}
             >

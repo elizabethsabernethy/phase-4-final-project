@@ -15,6 +15,7 @@ function App() {
                 <Route path='museums' element={<Museums/>}/>
                 <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection/>}/>
                 <Route path='paintings' element={<Paintings/>}/>
+                <Route path='artists' element={<Paintings/>}/>
                 <Route path='my-art' element={<Paintings/>}/>
             </Routes>
     </div>
