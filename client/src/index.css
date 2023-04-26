@@ -33,10 +33,15 @@ body {
   border: 0;
   padding: 5px;
   border-radius: 5px;
+  margin-bottom: 15px;
 }
 
-.museum-name{
+.museum-name, .artist-name{
   font-size: xx-large;
   margin: 15px;
+}
+
+.artist-username, .artist-museums{
+  font-size: smaller;
 }
 
