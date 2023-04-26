@@ -4,23 +4,23 @@ class ArtistsController < ApplicationController
 
     def index
         artists = Artist.all.order(name: :asc)
-        render json: artists, include: :paintings
+        render json: artists, include: [:paintings, :museums]
     end
 
     def show
         artist = Artist.find(params[:id])
-        render json: artist, include: :paintings
+        render json: artist, include: [:paintings, :museums]
     end
 
     def create
         artist = Artist.create!(artist_params)
-        render json: artist, include: :paintings, status: :created
+        render json: artist, include: [:paintings, :museums], status: :created
     end
 
     def update
         artist = Artist.find(params[:id])
         artist.update!(artist_params)
-        render json: artist, include: :paintings, status: :updated
+        render json: artist, include: [:paintings, :museums], status: :updated
     end
 
     def destroy
