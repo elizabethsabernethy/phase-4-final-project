@@ -6,6 +6,7 @@ import Paintings from "./Paintings";
 import MuseumPaintingCollection from "./MuseumPaintingCollection";
 import Artists from "./Artists";
 import ArtistPaintingCollection from "./ArtistPaintingCollection";
+import PageNotFound from "./PageNotFound";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path='artists' element={<Artists/>}/>
                 <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection/>}/>
                 <Route path='my-art' element={<Paintings/>}/>
+                <Route path='*' element={<PageNotFound/>}/>
             </Routes>
     </div>
   );
