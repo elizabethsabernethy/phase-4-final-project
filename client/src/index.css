@@ -11,7 +11,15 @@ body {
   align-items: center;
 }
 
-.museum, .painting, .artist{
+#page-not-found-container{
+  display: flex;
+  flex-flow: row wrap;
+  align-content:center;
+  align-items: center;
+  justify-content: center;
+}
+
+.museum, .painting, .artist, #error-message{
   flex-direction: column;
   background-color: antiquewhite;
   color: rgb(2, 54, 59);
