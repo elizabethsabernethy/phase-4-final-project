@@ -11,12 +11,16 @@ body {
   align-items: center;
 }
 
-#page-not-found-container{
+#page-not-found-container, #museum-name-container{
   display: flex;
   flex-flow: row wrap;
   align-content:center;
   align-items: center;
   justify-content: center;
+}
+
+#museum-name-container > h1{
+  text-decoration: underline;
 }
 
 .museum, .painting, .artist, #error-message{
