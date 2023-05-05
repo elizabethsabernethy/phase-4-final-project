@@ -1,7 +1,14 @@
 function User({user}){
     return(
+        // IF THE USER IS LOGGED IN, SHOW PROFILE INFORMATION
+        // INCLUDING NAME, USERNAME, A BUTTON TO SHOW PAINTINGS, A BUTTON TO SHOW MUSEUMS WHERE THEIR PAINTINGS ARE SHOWN, AND EDIT/DELETE BUTTONS
+        // EDIT BUTTON SHOULD ALLOW USER TO EDIT USERNAME, NAME, OR PASSWORD
+        // DELETE BUTTON SHOULD ALLOW USER TO DELETE PROFILE, ADD ALERT FOR EXTRA CLARIFICATION?
+        // USER SHOULD BE ABLE TO ADD AND DELETE PAINTINGS THROUGH THE MY-ART PAGE
+        // USER SHOULD BE ABLE TO ADD MUSEUM TO HOUSE PAINTINGS
             <div className="artist">
-                <h2>{user != null? user.name: "Please Login to view 'My Art'"}</h2>
+                {/* ON REFRESH, USER IS NOT PERSISTED, REQUIRING RE-LOGIN */}
+                <h2>{user != null? user.name: "Please Login to view Profile"}</h2>
             </div>
     )
 }
