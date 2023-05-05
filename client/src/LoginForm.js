@@ -21,9 +21,9 @@ function LoginForm({onLogin}){
       }).then((r) => {
         setIsLoading(false);
         if (r.ok) {
-          r.json().then((user) => onLogin(user));
+          r.json().then((user) => console.log(user));
         } else {
-          r.json().then((err) => setErrors(err.errors));
+          r.json().then((err) => console.log(err.errors));
         }
       });
     }
@@ -49,9 +49,10 @@ function LoginForm({onLogin}){
             onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
-        {errors.map((err) => (
+        {/* {errors.map((err) => (
           console.log(err)
-        ))}
+        ))} */}
+{/* errors rendering undefined */}
     </form>
         </div>
     

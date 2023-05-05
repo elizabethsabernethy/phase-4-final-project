@@ -26,7 +26,7 @@ function SignupForm({onLogin}){
       }).then((r) => {
         setIsLoading(false);
         if (r.ok) {
-          r.json().then((user) => onLogin(user));
+          r.json().then((user) => console.log(user));
         } else {
           r.json().then((err) => setErrors(err.errors));
         }
@@ -38,7 +38,7 @@ function SignupForm({onLogin}){
             <h1 className="name-container">Create New Account</h1>
             <div id="signup-page">
                 <form id="signup-form" onSubmit={handleSubmit}>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Name (i.e. John Doe)</label>
                 <input
                     type="text"
                     id="name"
@@ -71,9 +71,10 @@ function SignupForm({onLogin}){
                     autoComplete="current-password"
                 />
                 <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
-                {errors.map((err) => (
-                    console.log(err)
-                ))}
+                {/* {errors.map((err) => (
+                    alert(err)
+                ))} */}
+                {/* repeatdly alerts when trying to fix issue */}
             </form>
             </div>
             

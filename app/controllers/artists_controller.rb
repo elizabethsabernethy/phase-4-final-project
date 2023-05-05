@@ -18,7 +18,7 @@ class ArtistsController < ApplicationController
         user = Artist.create(artist_params)
         if user.valid?
             session[:user_id] = user.id
-        render json: artist, include: [:paintings, :museums], status: :created
+        render json: user, include: [:paintings, :museums], status: :created
         else
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
