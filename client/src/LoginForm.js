@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 function LoginForm({setUser}){
+
+    const navigate = useNavigate()
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -20,6 +23,7 @@ function LoginForm({setUser}){
         setIsLoading(false);
         if (r.ok) {
           r.json().then((user) => setUser(user));
+          navigate('/my-art') // navigate to profile component
         } else {
           r.json().then((err) => console.log(err.errors));
         }

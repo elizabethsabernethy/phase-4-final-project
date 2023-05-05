@@ -10,6 +10,7 @@ import Artists from "./Artists";
 import ArtistPaintingCollection from "./ArtistPaintingCollection";
 import PageNotFound from "./PageNotFound";
 import LoginOrSignupPage from "./LoginOrSignupPage";
+import User from "./User";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,7 +30,7 @@ function App() {
                 <Route path='paintings' element={<Paintings/>}/>
                 <Route path='artists' element={<Artists/>}/>
                 <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection/>}/>
-                <Route path='my-art' element={<Paintings/>}/>
+                <Route path='my-art' element={<User user={user}/>}/>
                 <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>
