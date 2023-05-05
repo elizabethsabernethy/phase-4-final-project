@@ -21,6 +21,7 @@ body {
 
 .name-container > h1{
   text-decoration: underline;
+  text-align: center;
 }
 
 .museum, .painting, .artist, #error-message{
@@ -123,6 +124,34 @@ padding: 5px;
 #app-header > button:hover{
   background-color: rgb(60, 126, 132);
   color: white;
+}
+
+#signup-page{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#signup-form{
+background-color: antiquewhite;
+width: 400px;
+display: flex;
+flex-flow: column wrap;
+align-content: center;
+align-items: center;
+justify-content: center;
+color:rgb(60, 126, 132);
+font-weight: 400;
+padding: 10px;
+}
+
+#signup-form > label{
+  margin: 10px;
+}
+
+#signup-form > input{
+  width: 250px;
 }
 
 form{
