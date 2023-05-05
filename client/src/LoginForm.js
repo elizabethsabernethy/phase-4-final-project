@@ -23,7 +23,7 @@ function LoginForm({setUser}){
         setIsLoading(false);
         if (r.ok) {
           r.json().then((user) => setUser(user));
-          navigate('/my-art') // navigate to profile component
+          navigate('/profile')
         } else {
           r.json().then((err) => console.log(err.errors));
         }
