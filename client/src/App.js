@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 import Home from "./Home";
 import Museums from "./Museums";
 import NavBar from "./NavBar";
@@ -12,23 +13,13 @@ import LoginOrSignupPage from "./LoginOrSignupPage";
 
 function App() {
   const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    // auto-login
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
-
-  if (!user) return <LoginOrSignupPage onLogin={setUser} />;
+  const navigate = useNavigate()
 
   return (
     <div>
       <div id="app-header">
         <NavBar />
-        <button>Login or Signup</button>
+        <button onClick={()=>{navigate("/login")}}>Login</button>
       </div>
         
         <Routes>
@@ -39,6 +30,7 @@ function App() {
                 <Route path='artists' element={<Artists/>}/>
                 <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection/>}/>
                 <Route path='my-art' element={<Paintings/>}/>
+                <Route path="login" element={<LoginOrSignupPage onLogin={setUser}/>}/>
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>
     </div>

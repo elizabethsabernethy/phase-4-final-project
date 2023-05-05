@@ -29,7 +29,9 @@ function LoginForm({onLogin}){
     }
 
     return(
-    <form onSubmit={handleSubmit}>
+        <div>
+            <h1 className="name-container">Login</h1>
+            <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
             type="text"
@@ -51,6 +53,8 @@ function LoginForm({onLogin}){
           console.log(err)
         ))}
     </form>
+        </div>
+    
     )
 }
 
