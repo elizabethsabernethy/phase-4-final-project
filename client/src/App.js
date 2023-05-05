@@ -30,7 +30,7 @@ function App() {
                 <Route path='artists' element={<Artists/>}/>
                 <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection/>}/>
                 <Route path='my-art' element={<Paintings/>}/>
-                <Route path="login" element={<LoginOrSignupPage onLogin={setUser}/>}/>
+                <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>
     </div>

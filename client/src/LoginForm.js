@@ -1,8 +1,6 @@
 import { useState } from "react";
 
-//onlogin is set user in app, pass back up through a login page
-
-function LoginForm({onLogin}){
+function LoginForm({setUser}){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -21,7 +19,7 @@ function LoginForm({onLogin}){
       }).then((r) => {
         setIsLoading(false);
         if (r.ok) {
-          r.json().then((user) => console.log(user));
+          r.json().then((user) => setUser(user));
         } else {
           r.json().then((err) => console.log(err.errors));
         }
