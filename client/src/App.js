@@ -11,16 +11,26 @@ import ArtistPaintingCollection from "./ArtistPaintingCollection";
 import PageNotFound from "./PageNotFound";
 import LoginOrSignupPage from "./LoginOrSignupPage";
 import User from "./User";
+import Logout from "./Logout";
 
 function App() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate()
 
+  function handleLogout(){
+    navigate("/logout")
+    fetch("/logout", { method: "DELETE" }).then((resp) => {
+      if (resp.ok) {
+        setUser(null);
+      }
+    });
+  }
+
   return (
     <div>
       <div id="app-header">
         <NavBar />
-        <button onClick={!user? ()=>{navigate("/login")} : ()=>{navigate("/logout")}}>{!user ? "Login" : "Logout"}</button>
+        <button onClick={!user? ()=>{navigate("/login")} : handleLogout}>{!user ? "Login" : "Logout"}</button>
       </div>
         
         <Routes>
@@ -33,7 +43,7 @@ function App() {
                 <Route path='profile' element={<User user={user}/>}/>
                 <Route path='my-art' element={<User user={user}/>}/>
                 <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
-                <Route path="logout" element={<Home/>}/> 
+                <Route path="logout" element={<Logout/>}/> 
                 {/* not logging user out? */}
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>

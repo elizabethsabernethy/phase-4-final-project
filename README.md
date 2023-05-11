@@ -7,8 +7,7 @@
   <!-- multiple error rendering -->
   - an artist should be able to login and remain logged in
   <!-- artist can login, not persisting -->
-  - an artist should be able to logout
-  <!-- change login button to say logout and add functionality -->
+  # an artist should be able to logout
   - an artist should be able to delete profile and all associated paintings
 
 
