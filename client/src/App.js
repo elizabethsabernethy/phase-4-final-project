@@ -20,11 +20,11 @@ function App() {
     <div>
       <div id="app-header">
         <NavBar />
-        <button onClick={()=>{navigate("/login")}}>Login</button>
+        <button onClick={!user? ()=>{navigate("/login")} : ()=>{navigate("/logout")}}>{!user ? "Login" : "Logout"}</button>
       </div>
         
         <Routes>
-                <Route path='/' element={<Home />} />
+                <Route path='/' element={<Home/>} />
                 <Route path='museums' element={<Museums/>}/>
                 <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection/>}/>
                 <Route path='paintings' element={<Paintings/>}/>
@@ -33,6 +33,8 @@ function App() {
                 <Route path='profile' element={<User user={user}/>}/>
                 <Route path='my-art' element={<User user={user}/>}/>
                 <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
+                <Route path="logout" element={<Home/>}/> 
+                {/* not logging user out? */}
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>
     </div>

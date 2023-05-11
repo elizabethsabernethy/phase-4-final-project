@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
 post "/signup", to: "artists#create"
-get "/profile", to: "artists#show"
+get "/profile", to: "artists#show" do
+
+end
 
 post "/login", to: "sessions#create"
 delete "/logout", to: "sessions#destroy"
