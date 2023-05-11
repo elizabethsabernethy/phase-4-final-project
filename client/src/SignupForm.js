@@ -7,6 +7,7 @@ function SignupForm({setUser}){
     const [name, setName] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    //single object state for all parts above
   
     function handleSubmit(e) {
       e.preventDefault();
@@ -28,10 +29,14 @@ function SignupForm({setUser}){
         if (r.ok) {
           r.json().then((user) => setUser(user));
         } else {
-          r.json().then((err) => setErrors(err.errors));
+          r.json().then((err) => {err.errors.map((err) => (
+            alert(err)
+        ))});
         }
       });
     }
+
+    //clear errors after giving alert, setTimeout to clear error, change to input causes error clearing
   
     return (
         <div>
@@ -71,10 +76,6 @@ function SignupForm({setUser}){
                     autoComplete="current-password"
                 />
                 <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
-                {/* {errors.map((err) => (
-                    alert(err)
-                ))} */}
-                {/* repeatdly alerts when trying to fix issue */}
             </form>
             </div>
             

@@ -30,7 +30,8 @@ function App() {
     <div>
       <div id="app-header">
         <NavBar />
-        <button onClick={!user? ()=>{navigate("/login")} : handleLogout}>{!user ? "Login" : "Logout"}</button>
+        <button id="loginout-button" onClick={!user? ()=>{navigate("/login")} : handleLogout}>{!user ? "Login" : "Logout"}</button>
+        <button hidden={user? false : true} id="profile-button">My Profile</button>
       </div>
         
         <Routes>

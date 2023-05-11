@@ -7,7 +7,6 @@ function LoginForm({setUser}){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
   
     function handleSubmit(e) {
@@ -25,7 +24,7 @@ function LoginForm({setUser}){
           r.json().then((user) => setUser(user));
           navigate('/profile')
         } else {
-          r.json().then((err) => console.log(err.errors));
+          r.json().then((err) => alert(err.error));
         }
       });
     }
@@ -51,10 +50,6 @@ function LoginForm({setUser}){
             onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
-        {/* {errors.map((err) => (
-          console.log(err)
-        ))} */}
-{/* errors rendering undefined */}
     </form>
         </div>
     
