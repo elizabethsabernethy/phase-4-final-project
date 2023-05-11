@@ -39,12 +39,6 @@ function NavBar(){
             >
                 Artists
             </NavLink>
-            <NavLink
-            to="/my-art"
-            style={linkStyles}
-            >
-                My Art
-            </NavLink>
         </div>
     )
 }

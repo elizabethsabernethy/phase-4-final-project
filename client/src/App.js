@@ -41,7 +41,6 @@ function App() {
                 <Route path='artists' element={<Artists/>}/>
                 <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection/>}/>
                 <Route path='profile' element={<User user={user}/>}/>
-                <Route path='my-art' element={<User user={user}/>}/>
                 <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
                 <Route path="logout" element={<Logout/>}/> 
                 {/* not logging user out? */}
