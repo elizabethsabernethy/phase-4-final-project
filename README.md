@@ -4,18 +4,18 @@
   # ** include react routing and required nav component **
   
   - an artist can sign up
+  <!-- multiple error rendering -->
   - an artist should be able to login and remain logged in
+  <!-- artist can login, not persisting -->
   - an artist should be able to logout
+  <!-- change login button to say logout and add functionality -->
+  - an artist should be able to delete profile and all associated paintings
 
 
   - an artist can delete painting
   - an artist can update painting info
 
   - an artist can view all paintings in their collection
-  - an artist can view one specific painting in their collection
-
-  
-  - user can view one specific painting from a museum
 
   # backend done -collector can view all museums 
   # backend done -collector can view one museum
@@ -49,7 +49,7 @@
 
 # Validations
 - Museum : must have name and be unique
-- Artist: must have unqiue username
+- Artist: must have unqiue username, and name, and password
 - Painting: must have title, artist, museum, and img_url
 
 Use controller validations to alter back end json response to front end. The response should pass your object if the creation, update, or deletion succeeds. However, the response should pass error messages to the front end and display them if the action fails. HINT: Utilize record.errors.
