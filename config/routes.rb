@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 post "/signup", to: "artists#create"
 get "/profile", to: "artists#show" do
-
+# add profile/user_id/paintings route
 end
 
 post "/login", to: "sessions#create"

@@ -13,6 +13,7 @@ import LoginOrSignupPage from "./LoginOrSignupPage";
 import User from "./User";
 import Logout from "./Logout";
 import AddPaintingForm from "./AddPaintingForm";
+import UserPaintingCollection from "./UserPaintingCollection";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -44,6 +45,7 @@ function App() {
                 <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection/>}/>
                 <Route path='profile' element={<User user={user}/>}/>
                 <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user}/>}/>
+                <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user}/>}/>
                 <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
                 <Route path="logout" element={<Logout/>}/> 
                 {/* not logging user out? */}
