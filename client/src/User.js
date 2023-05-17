@@ -22,6 +22,9 @@ function User({user}){
                         <h2>Hi, {user.name}</h2>
                         <h3>@{user.username}</h3>
                         <button className="view-paintings" onClick={click}>View ({user.paintings.length}) paintings</button>
+                        <button className="view-paintings">Add paintings</button>
+                        <h3>Museums featured at:</h3>
+                        <p>{user.museums}</p>
                     </div> : 
                     <div>
                         <h2>Please login to view profile</h2>
