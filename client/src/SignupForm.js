@@ -5,13 +5,11 @@ function SignupForm({setUser}){
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [name, setName] = useState("");
-    const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     //single object state for all parts above
   
     function handleSubmit(e) {
       e.preventDefault();
-      setErrors([]);
       setIsLoading(true);
       fetch("/signup", {
         method: "POST",
@@ -36,8 +34,6 @@ function SignupForm({setUser}){
       });
     }
 
-    //clear errors after giving alert, setTimeout to clear error, change to input causes error clearing
-  
     return (
         <div>
             <h1 className="name-container">Create New Account</h1>
@@ -78,7 +74,6 @@ function SignupForm({setUser}){
                 <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
             </form>
             </div>
-            
         </div>
       
     );
