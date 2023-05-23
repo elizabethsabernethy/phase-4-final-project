@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import Home from "./Home";
 import Museums from "./Museums";
@@ -19,6 +19,14 @@ function App() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate()
 
+  useEffect(()=>{
+    fetch("/me")
+    .then((resp)=>{console.log(resp)
+    return resp.json()})
+    .then((data)=>{console.log(data)
+    setUser(data)})
+  },[])
+
   function handleLogout(){
     navigate("/logout")
     fetch("/logout", { method: "DELETE" }).then((resp) => {
@@ -27,6 +35,8 @@ function App() {
       }
     });
   }
+
+  //useEffect to autologin
 
   return (
     <div>

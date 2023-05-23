@@ -6,19 +6,19 @@ class ArtistsController < ApplicationController
 
     def index
         artists = Artist.all.order(name: :asc)
-        render json: artists, include: [:paintings, :museums]
+        render json: artists
     end
 
     def show
         artist = Artist.find_by(id: session[:user_id])
-        render json: artist, include: [:paintings, :museums]
+        render json: artist
     end
 
     def create
         user = Artist.create(artist_params)
         if user.valid?
             session[:user_id] = user.id
-        render json: user, include: [:paintings, :museums], status: :created
+        render json: user, status: :created
         else
             render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end

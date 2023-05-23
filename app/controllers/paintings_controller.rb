@@ -11,23 +11,23 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
           else
             paintings = Painting.all.order(title: :asc)
           end
-        render json: paintings, include: [:museum, :artist]
+        render json: paintings
     end
 
     def show
         painting = Painting.find(params[:id])
-        render json: painting, include: [:museum, :artist]
+        render json: painting
     end
 
     def create
         painting = Painting.create!(painting_params)
-        render json: painting, include: [:museum, :artist], status: :created
+        render json: painting, status: :created
     end
     
     def update
         painting = Painting.find(params[:id])
         painting.update!(painting_params)
-        render json: painting, include: [:museum, :artist], status: :updated
+        render json: painting, status: :updated
     end
 
     def destroy
