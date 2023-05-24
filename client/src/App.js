@@ -21,10 +21,15 @@ function App() {
 
   useEffect(()=>{
     fetch("/me")
-    .then((resp)=>{console.log(resp)
-    return resp.json()})
-    .then((data)=>{console.log(data)
-    setUser(data)})
+    .then((resp)=>{
+      if(resp.ok){
+        return resp.json()
+    .then((data)=>{
+      return setUser(data)})
+      }
+      setUser(null)
+      })
+    
   },[])
 
   function handleLogout(){
@@ -36,16 +41,14 @@ function App() {
     });
   }
 
-  //useEffect to autologin
-
   return (
     <div>
       <div id="app-header">
         <NavBar />
         <button id="loginout-button" onClick={!user? ()=>{navigate("/login")} : handleLogout}>{!user ? "Login" : "Logout"}</button>
-        <button hidden={user? false : true} id="profile-button">My Profile</button>
+        <button hidden={user? false : true} id="profile-button" onClick={()=> navigate("/profile")}>My Profile</button>
       </div>
-        
+         
         <Routes>
                 <Route path='/' element={<Home/>} />
                 <Route path='museums' element={<Museums/>}/>

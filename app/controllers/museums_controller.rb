@@ -3,6 +3,8 @@ class MuseumsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
+before_action :authorize, only: [:show]  
+
     def index
         museums = Museum.all.order(name: :asc)
         render json: museums
@@ -43,4 +45,8 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
     def render_not_found_response
         render json: { error: "Museum not found" }, status: :not_found
       end
+
+      def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+    end
 end

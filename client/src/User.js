@@ -19,7 +19,6 @@ function User({user}){
         // USER SHOULD BE ABLE TO ADD AND DELETE PAINTINGS THROUGH THE MY-ART PAGE
         // USER SHOULD BE ABLE TO ADD MUSEUM TO HOUSE PAINTINGS
             <div className="artist">
-                {/* ON REFRESH, USER IS NOT PERSISTED, REQUIRING RE-LOGIN */}
                 {user? 
                     <div>
                         <h2>Hi, {user.name}</h2>
