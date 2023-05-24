@@ -1,0 +1,21 @@
+App
+
+UserPaintingCollection
+- fetch comes back as unauthorized despite being logged in
+- on refresh, user stays logged in, however user showing up as null creating other problems
+
+ArtistPaintingCollection
+- artist paintings only pull up Sam Jones paintings, not paintings for specific artist
+
+
+# Finish Add Painting Form
+
+# Create and make work Add Musuem Form
+
+# Allow user to delete specific paintings, or update them
+
+# Allow user to delete profile and all associated paintings
+
+-----------
+
+## Allow user to edit profile info
