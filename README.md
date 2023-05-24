@@ -3,10 +3,8 @@
 
   # ** include react routing and required nav component **
   
-  - an artist can sign up
-  <!-- multiple error rendering -->
-  - an artist should be able to login and remain logged in
-  <!-- artist can login, not persisting -->
+  # an artist can sign up
+  # an artist should be able to login and remain logged in
   # an artist should be able to logout
   - an artist should be able to delete profile and all associated paintings
 
@@ -41,10 +39,6 @@
   1. Museums= has_many :paintings, has_many :artists, through: :paintings
   2. Artists= has_many :paintings, has_many :museums, through :paintings
   3. Paintings= belongs_to :museum, belongs_to :artist (joins table)
-
-
-## Museum add button at bottom of museum, with single input box for name
-## --> collector is created with user signup?
 
 # Validations
 - Museum : must have name and be unique

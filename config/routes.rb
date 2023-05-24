@@ -9,9 +9,12 @@ Rails.application.routes.draw do
 
 post "/signup", to: "artists#create"
 get "/me", to: "artists#show"
-get "/profile", to: "artists#show" do
-# add profile/user_id/paintings route
-end
+get "/profile", to: "artists#show"
+get "/profile/:id/paintings", to: "paintings#show"
+
+
+#add get profile/:user_id/paintings route --> unsure how to get specific paintings from user and not all paintings
+
 
 post "/login", to: "sessions#create"
 delete "/logout", to: "sessions#destroy"
