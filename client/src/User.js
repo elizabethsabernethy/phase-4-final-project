@@ -26,7 +26,7 @@ function User({user}){
                         <button className="view-paintings" onClick={paintingsClick}>View ({user.paintings.length}) paintings</button>
                         <button className="view-paintings" onClick={addPaintingClick}>Add paintings</button>
                         <h3>Museums featured at:</h3>
-                        <p>{user.museums}</p>
+                        <p>{user.museums < 1 ? "None Currently" : user.museums}</p>
                     </div> : 
                     <div>
                         <h2>Please login to view profile</h2>

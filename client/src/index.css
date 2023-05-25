@@ -169,7 +169,7 @@ form{
   justify-content: center;
 }
 
-form > input{
+form > input, form > select{
   margin: 15px;
 }
 

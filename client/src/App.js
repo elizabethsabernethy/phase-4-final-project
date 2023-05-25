@@ -17,7 +17,14 @@ import UserPaintingCollection from "./UserPaintingCollection";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [museums, setMuseums] = useState([]);
   const navigate = useNavigate()
+
+  useEffect(()=>{
+    fetch('http://localhost:3000/museums')
+    .then((resp) => resp.json())
+    .then((museums) => setMuseums(museums))
+},[])
 
   useEffect(()=>{
     fetch("/me")
@@ -51,13 +58,13 @@ function App() {
          
         <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='museums' element={<Museums/>}/>
+                <Route path='museums' element={<Museums museums={museums}/>}/>
                 <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection/>}/>
                 <Route path='paintings' element={<Paintings/>}/>
                 <Route path='artists' element={<Artists/>}/>
                 <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection/>}/>
                 <Route path='profile' element={<User user={user}/>}/>
-                <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user}/>}/>
+                <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums}/>}/>
                 <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user}/>}/>
                 <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
                 <Route path="logout" element={<Logout/>}/> 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
-function AddPaintingForm({user}){
+function AddPaintingForm({user, museums}){
 
     const navigate = useNavigate()
 
@@ -40,8 +40,8 @@ function AddPaintingForm({user}){
                 />
                 <label htmlFor="museum">Museum</label>
                 <select id="museum" name="museum" onChange={(e) => setMuseumValue(e.target.value)}>
-                    {user.museums.map((museum)=>{
-                        <option value={museumValue}>{museum.name}</option>
+                    {museums.map((museum)=>{
+                        return <option key={museum.id} value={museum.id}>{museum.name}</option>
                     })}
                 </select>
             </form>

@@ -7,6 +7,9 @@ UserPaintingCollection
 ArtistPaintingCollection
 - artist paintings only pull up Sam Jones paintings, not paintings for specific artist
 
+AddPaintingForm
+- museum.name pulls name up but can't map multiple options for dropdown
+
 
 # Finish Add Painting Form
 
@@ -14,8 +17,10 @@ ArtistPaintingCollection
 
 # Allow user to delete specific paintings, or update them
 
-# Allow user to delete profile and all associated paintings
+# If user updates painting, have prefilled form with info
 
 -----------
 
 ## Allow user to edit profile info
+
+# Allow user to delete profile and all associated paintings
