@@ -9,11 +9,34 @@ function AddPaintingForm({user, museums}){
     const [imgUrl, setImgUrl] = useState("");
     const [description, setDescription] = useState("");
     const [museumValue, setMuseumValue] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
+    const user_id = user.id
+  
+    function handleSubmit(e) {
+      e.preventDefault();
+      setIsLoading(true);
+      fetch(`/artists/${user.id}/paintings`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ title, imgUrl, description, user_id, museumValue }),
+      }).then((resp) => {
+        setIsLoading(false);
+        if (resp.ok) {
+          resp.json().then((data) => console.log(data));
+        //   navigate('/profile')
+        } else {
+          resp.json().then((err) => console.log(err));
+        }
+      });
+    }
+
   
     return(
         <div>
             <h1 className="name-container">Add Painting</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title</label>
                 <input
                     type="text"
@@ -44,6 +67,7 @@ function AddPaintingForm({user, museums}){
                         return <option key={museum.id} value={museum.id}>{museum.name}</option>
                     })}
                 </select>
+                <button type="submit">{isLoading ? "Loading..." : "Add Painting"}</button>
             </form>
         </div>
     

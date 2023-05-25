@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :artists, except: [:create, :show] do
-    resources :paintings, only: [:index]
+    resources :paintings, only: [:index, :create, :destroy, :update]
   end
   resources :paintings, only: [:index]
   resources :museums do
