@@ -8,7 +8,8 @@ ArtistPaintingCollection
 - artist paintings only pull up Sam Jones paintings, not paintings for specific artist
 
 AddPaintingForm
-- museum.name pulls name up but can't map multiple options for dropdown
+- how to get specifc error messages to alert
+- how to fix errors
 
 
 # Finish Add Painting Form
