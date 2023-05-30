@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Artist from "./Artist"
 
-function Artists(){
+function Artists({showArtistPaintings}){
     const[artists, setArtists] = useState([])
 
     useEffect(()=>{
@@ -17,7 +17,7 @@ function Artists(){
             </div>
             <div id="artists-container">
             {artists.map((artist)=>{
-                return <Artist artist={artist} key={artist.id}/>
+                return <Artist artist={artist} showArtistPaintings={showArtistPaintings} key={artist.id}/>
             })}
         </div>
         </div>

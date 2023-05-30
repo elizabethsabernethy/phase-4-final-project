@@ -18,6 +18,7 @@ import UserPaintingCollection from "./UserPaintingCollection";
 function App() {
   const [user, setUser] = useState({});
   const [museums, setMuseums] = useState([]);
+  const [selectedArtist, setSelectedArtist] = useState({});
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -46,6 +47,10 @@ function App() {
     });
   }
 
+  function showArtistPaintings(artist){
+    setSelectedArtist(artist)
+  }
+
   return (
     <div>
       <div id="app-header">
@@ -59,8 +64,8 @@ function App() {
                 <Route path='museums' element={<Museums museums={museums}/>}/>
                 <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection/>}/>
                 <Route path='paintings' element={<Paintings/>}/>
-                <Route path='artists' element={<Artists/>}/>
-                <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection/>}/>
+                <Route path='artists' element={<Artists showArtistPaintings={showArtistPaintings}/>}/>
+                <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection selectedArtist={selectedArtist}/>}/>
                 <Route path='profile' element={<User user={user}/>}/>
                 <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums}/>}/>
                 <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user}/>}/>

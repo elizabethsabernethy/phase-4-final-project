@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom"
 
-function Artist({artist}){
+function Artist({artist, showArtistPaintings}){
     const navigate = useNavigate()
 
     function click(){
         navigate(`${artist.id}/paintings`)
+        showArtistPaintings(artist)
     }
 
     return(

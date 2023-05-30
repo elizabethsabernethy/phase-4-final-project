@@ -1,18 +1,11 @@
-App
-
-UserPaintingCollection
-- fetch comes back as unauthorized despite being logged in
-- on refresh, user stays logged in, however user showing up as null creating other problems
-
-ArtistPaintingCollection
-- artist paintings only pull up Sam Jones paintings, not paintings for specific artist
-
 AddPaintingForm
 - how to get specifc error messages to alert
 - how to fix errors
 
+ArtistPaintingCollection/ UserPaintingCollection
+- paintings do not have museum associated?
+- museum id seems visable in rails server in terminal?
 
-# Finish Add Painting Form
 
 # Create and make work Add Musuem Form
 
