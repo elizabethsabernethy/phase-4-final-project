@@ -19,6 +19,7 @@ function App() {
   const [user, setUser] = useState({});
   const [museums, setMuseums] = useState([]);
   const [selectedArtist, setSelectedArtist] = useState({});
+  const [newPainting, setNewPainting] = useState({});
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -51,6 +52,10 @@ function App() {
     setSelectedArtist(artist)
   }
 
+  function addPaintingFromForm(painting){
+    setNewPainting(painting)
+}
+
   return (
     <div>
       <div id="app-header">
@@ -67,8 +72,8 @@ function App() {
                 <Route path='artists' element={<Artists showArtistPaintings={showArtistPaintings}/>}/>
                 <Route path='artists/:artist_id/paintings' element={<ArtistPaintingCollection selectedArtist={selectedArtist}/>}/>
                 <Route path='profile' element={<User user={user}/>}/>
-                <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums}/>}/>
-                <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user}/>}/>
+                <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums} addPaintingFromForm={addPaintingFromForm}/>}/>
+                <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user} newPainting={newPainting}/>}/>
                 <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
                 <Route path="logout" element={<Logout/>}/> 
                 {/* not logging user out? */}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
-function AddPaintingForm({user, museums}){
+function AddPaintingForm({user, museums, addPaintingFromForm}){
 
     const navigate = useNavigate()
 
@@ -24,10 +24,10 @@ function AddPaintingForm({user, museums}){
       }).then((resp) => {
         setIsLoading(false);
         if (resp.ok) {
-          resp.json().then((data) => console.log(data));
-        //   navigate('/profile')
+          resp.json().then((data) => addPaintingFromForm(data));
+          navigate('/profile')
         } else {
-          resp.json().then((err) => console.log(err.errors));
+          resp.json().then((err) => alert(err.errors));
         }
       });
     }
@@ -63,6 +63,7 @@ function AddPaintingForm({user, museums}){
                 />
                 <label htmlFor="museum">Museum</label>
                 <select id="museum" name="museum" onChange={(e) => setMuseumValue(e.target.value)}>
+                  <option>Select Museum</option>
                     {museums.map((museum)=>{
                         return <option key={museum.id} value={museum.id}>{museum.name}</option>
                     })}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function UserPaintingCollection({user}){
+function UserPaintingCollection({user, newPainting}){
     const[img, setImg]= useState("")
     const paintings = user.id? user.paintings : []
 

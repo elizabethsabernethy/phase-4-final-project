@@ -1,10 +1,18 @@
 AddPaintingForm
-- how to get specifc error messages to alert
-- how to fix errors
+- urls for images not working?
+- paintings are not added until page refreshed
 
-ArtistPaintingCollection/ UserPaintingCollection
+ArtistPaintingCollection
 - paintings do not have museum associated?
 - museum id seems visable in rails server in terminal?
+
+UserPaintingCollection
+- paintings do not have museum associated?
+- museum id seems visable in rails server in terminal?
+- newPainting prop not console logging? ---> how to add new painting instantly?
+
+User
+- how to not have duplicate museums in profile page?
 
 
 # Create and make work Add Musuem Form
