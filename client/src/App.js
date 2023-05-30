@@ -46,13 +46,11 @@ function App() {
     });
   }
 
-  console.log(user)
-
   return (
     <div>
       <div id="app-header">
         <NavBar />
-        <button id="loginout-button" onClick={user.id? ()=>{navigate("/login")} : handleLogout}>{user.id ? "Logout" : "Login"}</button>
+        <button id="loginout-button" onClick={!user.id? ()=>{navigate("/login")} : handleLogout}>{user.id ? "Logout" : "Login"}</button>
         <button hidden={user.id? false : true} id="profile-button" onClick={()=> navigate("/profile")}>My Profile</button>
       </div>
          
