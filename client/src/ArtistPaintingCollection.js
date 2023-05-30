@@ -2,21 +2,23 @@ import { useState, useEffect } from "react";
 
 function ArtistPaintingCollection(){
     const artistId = window.location.pathname.split('/')[2]
-    const[paintings, setPaintings]= useState([])
+    const[artists, setArtists]= useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:3000/artists/${artistId}/paintings`)
+        fetch(`/artists`)
         .then((resp) => resp.json())
-        .then((paintings) => setPaintings(paintings))
+        .then((artists) => setArtists(artists))
     },[])
 
-    const artistName = paintings.map((painting)=>{
-        return painting.artist.name
-    })
+    //FILTER/FIND THE ARTIST FROM ARTISTS STATE THAT MATCHES THE ARTIST ID CONST
+
+    // const artistName = paintings.map((painting)=>{
+    //     return painting.artist.name
+    // })
 
     return(
         <div>
-            <div className="name-container">
+            {/* <div className="name-container">
                 <h1>Paintings by {artistName[0]}</h1>
             </div>
             <div id="artist-paintings-container">
@@ -30,7 +32,7 @@ function ArtistPaintingCollection(){
                     </div>
                 </div>
             })}
-            </div>
+            </div> */}
         </div>
     )
 }

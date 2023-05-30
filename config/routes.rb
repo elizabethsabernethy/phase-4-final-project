@@ -11,6 +11,7 @@ post "/signup", to: "artists#create"
 get "/me", to: "artists#show"
 get "/profile", to: "artists#show"
 get "/profile/:id/paintings", to: "paintings#show"
+get "/artists/:id/paintings", to: "paintings#show"
 
 
 #add get profile/:user_id/paintings route --> unsure how to get specific paintings from user and not all paintings
