@@ -16,7 +16,7 @@ import AddPaintingForm from "./AddPaintingForm";
 import UserPaintingCollection from "./UserPaintingCollection";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [museums, setMuseums] = useState([]);
   const navigate = useNavigate()
 
@@ -30,30 +30,30 @@ function App() {
     fetch("/me")
     .then((resp)=>{
       if(resp.ok){
-        return resp.json()
-    .then((data)=>{
-      return setUser(data)})
-      }
-      setUser(null)
+       resp.json().then((data)=> {
+        setUser(data)
       })
-    
+      }
+      })
   },[])
 
   function handleLogout(){
     navigate("/logout")
     fetch("/logout", { method: "DELETE" }).then((resp) => {
       if (resp.ok) {
-        setUser(null);
+        setUser({});
       }
     });
   }
+
+  console.log(user)
 
   return (
     <div>
       <div id="app-header">
         <NavBar />
-        <button id="loginout-button" onClick={!user? ()=>{navigate("/login")} : handleLogout}>{!user ? "Login" : "Logout"}</button>
-        <button hidden={user? false : true} id="profile-button" onClick={()=> navigate("/profile")}>My Profile</button>
+        <button id="loginout-button" onClick={user.id? ()=>{navigate("/login")} : handleLogout}>{user.id ? "Logout" : "Login"}</button>
+        <button hidden={user.id? false : true} id="profile-button" onClick={()=> navigate("/profile")}>My Profile</button>
       </div>
          
         <Routes>

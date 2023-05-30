@@ -19,14 +19,14 @@ function User({user}){
         // USER SHOULD BE ABLE TO ADD AND DELETE PAINTINGS THROUGH THE MY-ART PAGE
         // USER SHOULD BE ABLE TO ADD MUSEUM TO HOUSE PAINTINGS
             <div className="artist">
-                {user? 
+                {user.id? 
                     <div>
                         <h2>Hi, {user.name}</h2>
                         <h3>@{user.username}</h3>
                         <button className="view-paintings" onClick={paintingsClick}>View ({user.paintings.length}) paintings</button>
                         <button className="view-paintings" onClick={addPaintingClick}>Add paintings</button>
                         <h3>Museums featured at:</h3>
-                        <p>{user.museums < 1 ? "None Currently" : user.museums}</p>
+                        <p>{user.museums < 1 ? "None Currently" : user.museums.map((museum)=> museum.name)}</p>
                     </div> : 
                     <div>
                         <h2>Please login to view profile</h2>

@@ -45,7 +45,7 @@ before_action :authorize, only: [:show]
     end
 
     def render_invalid_response(invalid)
-        render json: { error: invalid.record.errors.messages}, status: :unprocessable_entity
+        render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
 
     def render_not_found_response

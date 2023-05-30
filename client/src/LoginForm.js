@@ -18,13 +18,13 @@ function LoginForm({setUser}){
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, password }),
-      }).then((r) => {
+      }).then((resp) => {
         setIsLoading(false);
-        if (r.ok) {
-          r.json().then((user) => setUser(user));
+        if (resp.ok) {
+          resp.json().then((user) => setUser(user));
           navigate('/profile')
         } else {
-          r.json().then((err) => alert(err.error));
+          resp.json().then((err) => alert(err.error));
         }
       });
     }

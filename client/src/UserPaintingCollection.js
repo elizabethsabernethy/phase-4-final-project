@@ -18,6 +18,8 @@ function UserPaintingCollection({user}){
 
     {console.log(paintings)}
 
+    //find work around for user.paintings, etc when user={}
+
     return(
         <div>
             <div className="name-container">

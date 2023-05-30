@@ -20,14 +20,14 @@ function AddPaintingForm({user, museums}){
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ title, imgUrl, description, user_id, museumValue }),
+        body: JSON.stringify({ title, img_url: imgUrl, description, user_id, museum_id: museumValue }),
       }).then((resp) => {
         setIsLoading(false);
         if (resp.ok) {
           resp.json().then((data) => console.log(data));
         //   navigate('/profile')
         } else {
-          resp.json().then((err) => console.log(err));
+          resp.json().then((err) => console.log(err.errors));
         }
       });
     }
