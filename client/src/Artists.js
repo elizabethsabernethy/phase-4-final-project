@@ -17,6 +17,7 @@ function Artists({showArtistPaintings}){
             </div>
             <div id="artists-container">
             {artists.map((artist)=>{
+                console.log(artist.id)
                 return <Artist artist={artist} showArtistPaintings={showArtistPaintings} key={artist.id}/>
             })}
         </div>

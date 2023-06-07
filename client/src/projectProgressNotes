@@ -1,6 +1,7 @@
 AddPaintingForm
 - urls for images not working?
 - paintings are not added until page refreshed
+- how to add instantly?
 
 ArtistPaintingCollection
 - paintings do not have museum associated?
@@ -10,9 +11,18 @@ UserPaintingCollection
 - paintings do not have museum associated?
 - museum id seems visable in rails server in terminal?
 - newPainting prop not console logging? ---> how to add new painting instantly?
+- how to handle broken images links and not affect non-broken links
 
 User
 - how to not have duplicate museums in profile page?
+
+Paintings
+- urls for paintings not broken, and displays associated museum accurately (ref. artistPaintingCollection)
+- add condition for broken img url
+
+Museums/ Paintings
+- add condition for broken img url
+- set paitning display within container to be set width and height for consistency
 
 
 # Create and make work Add Musuem Form

@@ -15,6 +15,7 @@ function Artist({artist, showArtistPaintings}){
                     <button className="view-paintings" onClick={click}>View ({artist.paintings.length}) paintings</button>
                     <div className="artist-museums">Paintings on display at: {artist.museums.length<1? "N/A" : artist.museums.map((museum)=>{
                         return <p style={{ fontWeight: 'bold'}} className="artist-museum-name" key={museum.id}>{museum.name}. </p>
+                        // duplicate museums?
                     })}</div>
             </div>
     )
