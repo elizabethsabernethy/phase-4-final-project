@@ -59,7 +59,7 @@ function App() {
         <Routes>
                 <Route path='/' element={<Home/>} />
                 <Route path='museums' element={<Museums museums={museums}/>}/>
-                <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection/>}/>
+                <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection museums={museums}/>}/>
                 <Route path='profile' element={<User user={user}/>}/>
                 <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums} addPaintingFromForm={addPaintingFromForm}/>}/>
                 <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user} newPainting={newPainting}/>}/>

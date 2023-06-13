@@ -1,33 +1,25 @@
-import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Painting from "./Painting";
 
-function MuseumPaintingCollection(){
-    const museumId = window.location.pathname.split('/')[2]
-    const[paintings, setPaintings]= useState([])
+function MuseumPaintingCollection({museums}){
+    
+const location = useLocation();
+const path = location.pathname
+const museum_id = parseInt(path.split('/')[2])
 
-    useEffect(()=>{
-        fetch(`http://localhost:3000/museums/${museumId}/paintings`)
-        .then((resp) => resp.json())
-        .then((paintings) => setPaintings(paintings))
-    },[])
+const museum = museums.find((museum)=>{
+    return museum.id === museum_id
+})
 
-    const museumName = paintings.map((painting)=>{
-        return painting.museum.name
-    })
-
-    return(
+        return(
         <div>
              <div className="name-container">
-                    <h1>{museumName[0]} Collection</h1>
+                    <h1>{museum.name} Collection</h1>
             </div>
             <div id="museum-paintings-container">
-            {paintings.map((painting)=>{
-                return <div  key={painting.id}>
-                    <div className="painting">
-                        <img className="painting-img" src={painting.img_url} alt={painting.title} width="350px"></img>
-                        <h3 className="painting-title">{painting.title}</h3>
-                        <h4>{painting.artist.name}</h4>
-                        <p className="painting-description">{painting.description}</p>
-                    </div>
+            {museum.paintings.map((painting)=>{
+                return <div key={painting.id}>
+                    <Painting painting={painting}></Painting>
                 </div>
             })}
             </div>

@@ -1,15 +1,8 @@
-import { useEffect, useState } from "react";
+import Painting from "./Painting";
 
 function UserPaintingCollection({user, newPainting}){
 
-    const[img, setImg]= useState("")
     const paintings = user.id? user.paintings : []
-
-    useEffect(()=>{
-     paintings.map((painting)=>{
-        return setImg(painting.img_url)
-     })
-    },[])
 
     return(
         <div>
@@ -20,11 +13,7 @@ function UserPaintingCollection({user, newPainting}){
             {paintings.map((painting)=>{
                 return <div key={painting.id}>
                     {paintings.length < 1 ? "Please add paintings" :
-                    <div className="painting">
-                        <img className="painting-img" src={painting.img_url} alt={painting.title} width="350px" height="250px"></img>
-                        <h3 className="painting-title">{painting.title}</h3>
-                        <p className="painting-description">{painting.description}</p>
-                    </div>
+                    <Painting painting={painting}></Painting>
                     }
                 </div>
             })}
@@ -34,5 +23,3 @@ function UserPaintingCollection({user, newPainting}){
 }
 
 export default UserPaintingCollection;
-
-//onError={()=> setImg("https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png")}

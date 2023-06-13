@@ -5,26 +5,21 @@ AddPaintingForm
 - paintings are not added until page refreshed
 - how to add instantly?
 
-ArtistPaintingCollection
-- paintings do not have museum associated?
-- museum id seems visable in rails server in terminal?
-
 UserPaintingCollection
 - paintings do not have museum associated?
 - museum id seems visable in rails server in terminal?
+- how to get museum name to display with painting?
 - newPainting prop not console logging? ---> how to add new painting instantly?
 - how to handle broken images links and not affect non-broken links
 
 User
-- how to not have duplicate museums in profile page?
+- how to not have duplicate museums in profile page? .uniq?
 
-Paintings
-- urls for paintings not broken, and displays associated museum accurately (ref. artistPaintingCollection)
-- add condition for broken img url
+MuseumPaintingCollection
+- When getting paintings from museum, I cannot access artist info. In rails console I can find the artist id, but not when console logged through react.
+- Also how to get artist name with just artist_id?
+- On navigation from museums page to museums/:id/paintings, page loads correctly, however on refreshing the paintings page, the museums prop being passed from app returns as an empty array
 
-Museums/ Paintings
-- add condition for broken img url
-- set paitning display within container to be set width and height for consistency
 
 
 # Create and make work Add Musuem Form
