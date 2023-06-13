@@ -194,5 +194,12 @@ button:hover{
   background-color: rgb(60, 126, 132);
 }
 
+.painting-button{
+  width: 175px;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-align: center;
+}
+
 
 
