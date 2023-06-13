@@ -1,3 +1,5 @@
+//Make component for painting card to use in collections
+
 AddPaintingForm
 - urls for images not working?
 - paintings are not added until page refreshed

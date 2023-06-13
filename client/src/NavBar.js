@@ -27,18 +27,6 @@ function NavBar(){
             >
                 Museums
             </NavLink>
-            <NavLink
-            to="/paintings"
-            style={linkStyles}
-            >
-                Paintings
-            </NavLink>
-            <NavLink
-            to="/artists"
-            style={linkStyles}
-            >
-                Artists
-            </NavLink>
         </div>
     )
 }

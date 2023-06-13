@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function UserPaintingCollection({user, newPainting}){
-    
+
     const[img, setImg]= useState("")
     const paintings = user.id? user.paintings : []
 
@@ -21,8 +21,7 @@ function UserPaintingCollection({user, newPainting}){
                 return <div key={painting.id}>
                     {paintings.length < 1 ? "Please add paintings" :
                     <div className="painting">
-                        {console.log(img)}
-                        <img className="painting-img" src={img} alt={painting.title} width="350px" height="250px"></img>
+                        <img className="painting-img" src={painting.img_url} alt={painting.title} width="350px" height="250px"></img>
                         <h3 className="painting-title">{painting.title}</h3>
                         <p className="painting-description">{painting.description}</p>
                     </div>
