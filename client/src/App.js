@@ -4,10 +4,7 @@ import Home from "./Home";
 import Museums from "./Museums";
 import NavBar from "./NavBar";
 import {Route, Routes} from "react-router-dom";
-import Paintings from "./Paintings";
 import MuseumPaintingCollection from "./MuseumPaintingCollection";
-import Artists from "./Artists";
-import ArtistPaintingCollection from "./ArtistPaintingCollection";
 import PageNotFound from "./PageNotFound";
 import LoginOrSignupPage from "./LoginOrSignupPage";
 import User from "./User";
@@ -68,7 +65,6 @@ function App() {
                 <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user} newPainting={newPainting}/>}/>
                 <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
                 <Route path="logout" element={<Logout/>}/> 
-                {/* not logging user out? */}
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>
     </div>
