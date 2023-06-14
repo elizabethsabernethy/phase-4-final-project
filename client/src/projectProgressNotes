@@ -28,8 +28,4 @@ MuseumPaintingCollection
 
 # If user updates painting, have prefilled form with info
 
------------
-
-## Allow user to edit profile info
-
-# Allow user to delete profile and all associated paintings
+# changes user prop passing to useContext?

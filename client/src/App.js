@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom"
 import Home from "./Home";
 import Museums from "./Museums";
@@ -58,7 +58,7 @@ function App() {
          
         <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='museums' element={<Museums museums={museums}/>}/>
+                <Route path='museums' element={<Museums museums={museums} user={user}/>}/>
                 <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection museums={museums}/>}/>
                 <Route path='profile' element={<User user={user}/>}/>
                 <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums} addPaintingFromForm={addPaintingFromForm}/>}/>

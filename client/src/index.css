@@ -11,7 +11,7 @@ body {
   align-items: center;
 }
 
-#page-not-found-container, .name-container{
+#page-not-found-container, .name-container, .user-container{
   display: flex;
   flex-flow: row wrap;
   align-content:center;
@@ -199,6 +199,13 @@ button:hover{
   margin-left: 15px;
   margin-right: 15px;
   text-align: center;
+}
+
+#add-museum{
+ display: flex;
+  align-content:center;
+  align-items: center;
+  justify-content: center;
 }
 
 

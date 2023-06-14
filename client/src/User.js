@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
+
 function User({user}){
 
     const navigate = useNavigate()
@@ -12,9 +13,9 @@ function User({user}){
     }
 
     return(
-            <div className="artist">
+            <div id="user-container">
                 {user.id? 
-                    <div>
+                    <div className="artist">
                         <h2>Hi, {user.name}</h2>
                         <h3>@{user.username}</h3>
                         <button className="view-paintings" onClick={paintingsClick}>View ({user.paintings.length}) paintings</button>
