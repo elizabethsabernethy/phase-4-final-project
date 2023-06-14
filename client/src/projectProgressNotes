@@ -22,10 +22,10 @@ MuseumPaintingCollection
 
 
 
-# Create and make work Add Musuem Form
+# Make work Add Musuem Form
 
 # Allow user to delete specific paintings, or update them
 
 # If user updates painting, have prefilled form with info
 
-# changes user prop passing to useContext?
+###### changes user prop passing to useContext?
