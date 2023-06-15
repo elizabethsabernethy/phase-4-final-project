@@ -8,8 +8,15 @@ function UserPaintingCollection({user, newPainting}){
         console.log("edit")
     }
 
-    function deletePainting(){
-        console.log("delete")
+    function deletePainting(painting){
+        fetch(`http://localhost:3000/artists/${user.id}/paintings/${painting.id}`, {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json"
+              }
+              })
+        .then((resp) => resp.json())
+        .then((item) => console.log(item));
     }
 
     return(
@@ -24,7 +31,7 @@ function UserPaintingCollection({user, newPainting}){
                     <div>
                     <Painting painting={painting}></Painting>
                     <button onClick={editPainting} className="painting-button">Edit Painting</button>
-                    <button onClick={deletePainting} className="painting-button">Delete Painting</button>
+                    <button onClick={()=> deletePainting(painting)} className="painting-button">Delete Painting</button>
                     </div>
                     }
                 </div>

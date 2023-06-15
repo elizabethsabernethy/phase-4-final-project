@@ -1,5 +1,3 @@
-//Make component for painting card to use in collections
-
 AddPaintingForm
 - urls for images not working?
 - paintings are not added until page refreshed
@@ -10,7 +8,8 @@ UserPaintingCollection
 - museum id seems visable in rails server in terminal?
 - how to get museum name to display with painting?
 - newPainting prop not console logging? ---> how to add new painting instantly?
-- how to handle broken images links and not affect non-broken links
+
+- delete painting gets "Unhandled Rejection (SyntaxError): Unexpected end of JSON input" error, but painting shows as deleted on refresh?
 
 User
 - how to not have duplicate museums in profile page? .uniq?
@@ -26,10 +25,6 @@ Add Musuem
 
 ## remove unused routes in backend controllers
 ## abstract repeated error catching to application controller instead of individual controllers
-
-
-
-# Make work Add Musuem Form
 
 # Allow user to delete specific paintings, or update them
 
