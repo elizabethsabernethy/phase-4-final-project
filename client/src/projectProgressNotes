@@ -10,8 +10,8 @@ UserPaintingCollection
 
 - delete painting gets "Unhandled Rejection (SyntaxError): Unexpected end of JSON input" error, but painting shows as deleted on refresh?
 
-User
-- how to not have duplicate museums in profile page? .uniq?
+User/ Museum
+- how to not have duplicate museums/ artists in profile page? ----> .uniq? in backend
 
 MuseumPaintingCollection
 - When getting paintings from museum, I cannot access artist info. In rails console I can find the artist id, but not when console logged through react.
