@@ -1,7 +1,6 @@
 class PaintingsController < ApplicationController
 
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
 before_action :authorize, only: [:show]  
 
@@ -44,15 +43,8 @@ before_action :authorize, only: [:show]
         params.permit(:title, :img_url, :description, :artist_id, :museum_id)
     end
 
-    def render_invalid_response(invalid)
-        render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
-    end
-
     def render_not_found_response
         render json: { error: "Painting not found" }, status: :not_found
       end
 
-      def authorize
-        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
-    end
 end

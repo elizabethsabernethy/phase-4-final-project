@@ -1,5 +1,4 @@
 AddPaintingForm
-- urls for images not working?
 - paintings are not added until page refreshed
 - how to add instantly?
 
@@ -22,9 +21,6 @@ MuseumPaintingCollection
 Add Musuem
 - figure out how to alert error(s) properly
 - figure out how to instantly add museum
-
-## remove unused routes in backend controllers
-## abstract repeated error catching to application controller instead of individual controllers
 
 # Allow user to delete specific paintings, or update them
 

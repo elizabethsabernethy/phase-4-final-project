@@ -1,6 +1,5 @@
 class ArtistsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-    rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
     before_action :authorize, only: [:show]   
 
@@ -42,15 +41,8 @@ class ArtistsController < ApplicationController
         params.permit(:name, :username, :password, :password_confirmation)
     end
 
-    def render_invalid_response(invalid)
-        render json: { error: invalid.record.errors.messages}, status: :unprocessable_entity
-    end
-
     def render_not_found_response
         render json: { error: "Artist not found" }, status: :not_found
     end
 
-    def authorize
-        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
-    end
 end

@@ -1,7 +1,6 @@
 class MuseumsController < ApplicationController
 
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
 before_action :authorize, only: [:show]  
 
@@ -38,15 +37,8 @@ before_action :authorize, only: [:show]
         params.permit(:name, :img_url, :location)
     end
 
-    def render_invalid_response(invalid)
-        render json: { error: invalid.record.errors.messages}, status: :unprocessable_entity
-    end
-
     def render_not_found_response
         render json: { error: "Museum not found" }, status: :not_found
       end
 
-      def authorize
-        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
-    end
 end
