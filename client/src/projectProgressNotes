@@ -20,6 +20,16 @@ MuseumPaintingCollection
 - Also how to get artist name with just artist_id?
 - On navigation from museums page to museums/:id/paintings, page loads correctly, however on refreshing the paintings page, the museums prop being passed from app returns as an empty array
 
+Add Musuem
+- Make backend route
+- Make frontend route in app
+- Navigate through museums component to add museum form
+- add functionality to form
+- figure out how to instantly add museum
+
+## remove unused routes in backend controllers
+## abstract repeated error catching to application controller instead of individual controllers
+
 
 
 # Make work Add Musuem Form
