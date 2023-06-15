@@ -49,6 +49,10 @@ body {
   margin-bottom: 15px;
 }
 
+.view-paintings:hover{
+  background-color: rgb(84, 175, 183);
+}
+
 .museum-name, .artist-name{
   font-size: xx-large;
   margin: 15px;
