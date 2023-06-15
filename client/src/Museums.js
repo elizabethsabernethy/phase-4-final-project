@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom"
 import Museum from "./Museum"
 
 function Museums({museums, user}){
 
+const navigate = useNavigate();
+
     function addMuseum(){
-        console.log("added")
+        navigate(`/add-museum`)
     }
 
     return(
