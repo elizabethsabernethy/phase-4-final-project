@@ -49,6 +49,10 @@ function App() {
     setNewPainting(painting)
 }
 
+function addMuseumFromForm(museum){
+  setMuseums([...museums, museum])
+}
+
   return (
     <div>
       <div id="app-header">
@@ -61,7 +65,7 @@ function App() {
                 <Route path='/' element={<Home/>} />
                 <Route path='museums' element={<Museums museums={museums} user={user}/>}/>
                 <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection museums={museums}/>}/>
-                <Route path='/add-museum' element={<AddMuseumForm/>}/>
+                <Route path='/add-museum' element={<AddMuseumForm addMuseumFromForm={addMuseumFromForm}/>}/>
                 <Route path='profile' element={<User user={user}/>}/>
                 <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums} addPaintingFromForm={addPaintingFromForm}/>}/>
                 <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user} newPainting={newPainting}/>}/>

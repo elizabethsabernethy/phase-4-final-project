@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function AddMuseumForm(){
+function AddMuseumForm({addMuseumFromForm}){
 
     const navigate = useNavigate()
 
@@ -22,7 +22,7 @@ function AddMuseumForm(){
         }).then((resp) => {
           setIsLoading(false);
           if (resp.ok) {
-            resp.json().then((data) => console.log(data));
+            resp.json().then((data) => addMuseumFromForm(data));
             navigate('/museums')
           } else {
             resp.json().then((err)=> console.log(err.error))
