@@ -1,3 +1,17 @@
+1. How to add new painting through add painting form instantly to dom? --AddPaintingForm/ UserPaintingCollection
+
+2. How to use .uniq in backend to prevent duplicate museums for a user, and artists for a museum?
+
+3. Refreshing museum/:id/paintings page causes error because the museum prop being passed from app returns as an empty array.
+
+4. Paintings gotten through user don't have museum information, and paintings gotten through museum don't have artist information.
+
+5. Delete painting gets "Unhandled Rejection (SyntaxError): Unexpected end of JSON input" error, but painting shows as deleted on refresh. --UserPaintingCollection
+
+6. How to get errors from add museum to alert properly? --AddMuseumForm
+
+7. How to change props passing of user state to utilize useContext()?
+
 AddPaintingForm
 - paintings are not added until page refreshed
 - how to add instantly?
