@@ -46,6 +46,13 @@ function App() {
   }
 
   function addPaintingFromForm(painting){
+    //update paintings array for user object
+    //update museums array for the user object if the museum for the painting isn't present in the users museums array
+    //setUser with new painting
+    //find museum in museums array for the new painting
+    //update the cooresponding museum with new painting
+    //update artists array for the museum object if the artists for the painting isn't present in the museum's artists array
+    //setMuseums with new painting
     setNewPainting(painting)
 }
 

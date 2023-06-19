@@ -24,7 +24,7 @@ function showArtists(){
                 <button className="view-paintings" onClick={click}>View ({museum.paintings.length}) Paintings</button>
                 <button onClick={showArtists} className="view-paintings">{!show ? 'View Featured Artists' : 'Hide Artists'}</button>
             <div hidden={!show}>
-                {museum.artists.map((artist)=>{
+                {museum.uniqueArtists.map((artist)=>{
                     return <div key={artist.id}>
                         <h4>{artist.name}</h4>
                         </div>

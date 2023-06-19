@@ -4,4 +4,9 @@ class Museum < ApplicationRecord
     validates :name, presence: true, uniqueness: true
     validates :img_url, presence: true
     validates :location, presence: true
+
+    # def uniqueArtists 
+    #     self.artists.uniq
+    # end
+
 end

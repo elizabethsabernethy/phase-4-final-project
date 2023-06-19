@@ -9,9 +9,11 @@ const museum_id = parseInt(path.split('/')[2])
 
 const museum = museums.find((museum)=>{
     return museum.id === museum_id
+
 })
 
         return(
+            //make conditional based on whether museum exists... setLoading?
         <div>
              <div className="name-container">
                     <h1>{museum.name} Collection</h1>
