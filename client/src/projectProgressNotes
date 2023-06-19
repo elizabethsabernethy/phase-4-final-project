@@ -1,10 +1,15 @@
 1. How to add new painting through add painting form instantly to dom? --AddPaintingForm/ UserPaintingCollection
+- not sure since its being added through the artist to their collection of paintings?
 
 2. How to use .uniq in backend to prevent duplicate museums for a user, and artists for a museum?
+- tried .uniq vs .distinct
+- tried adding after.all, and after .order
 
-3. Refreshing museum/:id/paintings page causes error because the museum prop being passed from app returns as an empty array.
+3. Refreshing museum/:id/paintings page causes error because the museums prop being passed from app returns as an empty array. --> useRef?
+- tried useRef and same result
 
 4. Paintings gotten through user don't have museum information, and paintings gotten through museum don't have artist information.
+- rails c shows the id of the corresponding thing... but console logging doesn't show artist (or museum) associted with painting.
 
 5. Delete painting gets "Unhandled Rejection (SyntaxError): Unexpected end of JSON input" error, but painting shows as deleted on refresh. --UserPaintingCollection
 

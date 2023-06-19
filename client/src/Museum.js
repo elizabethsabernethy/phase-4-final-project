@@ -14,8 +14,6 @@ function showArtists(){
     setShow((show)=> !show)
 }
 
-console.log(museum.artists)
-
     return(
         <div className="museum">
             <h3 className="museum-name">{museum.name}</h3>
@@ -27,7 +25,9 @@ console.log(museum.artists)
                 <button onClick={showArtists} className="view-paintings">{!show ? 'View Featured Artists' : 'Hide Artists'}</button>
             <div hidden={!show}>
                 {museum.artists.map((artist)=>{
-                    return <h4>{artist.name}</h4>
+                    return <div key={artist.id}>
+                        <h4>{artist.name}</h4>
+                        </div>
                 })}
             </div>
             </div>: 
