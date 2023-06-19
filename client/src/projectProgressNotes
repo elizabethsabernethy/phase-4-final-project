@@ -1,7 +1,6 @@
 1. How to add new painting through add painting form instantly to dom? --AddPaintingForm/ UserPaintingCollection
 - not sure since its being added through the artist to their collection of paintings?
-
-5. Delete painting gets "Unhandled Rejection (SyntaxError): Unexpected end of JSON input" error, but painting shows as deleted on refresh. --UserPaintingCollection
+- similar effect for updating and deleting
 
 6. How to get errors from add museum to alert properly? --AddMuseumForm
 

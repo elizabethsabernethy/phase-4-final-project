@@ -1,6 +1,6 @@
 import Painting from "./Painting";
 
-function UserPaintingCollection({user, newPainting}){
+function UserPaintingCollection({user, onDeletePainting}){
 
     const paintings = user.id? user.paintings : []
 
@@ -9,14 +9,11 @@ function UserPaintingCollection({user, newPainting}){
     }
 
     function deletePainting(painting){
-        fetch(`http://localhost:3000/artists/${user.id}/paintings/${painting.id}`, {
-              method: "DELETE",
-              headers: {
-                "Content-Type": "application/json"
-              }
-              })
-        .then((resp) => resp.json())
-        .then((item) => console.log(item));
+        fetch(`http://localhost:3000/profile/${user.id}/paintings/${painting.id}`, {
+          method: "DELETE",
+          })
+            .then((resp) => resp.json())
+            .then(() => onDeletePainting(painting));
     }
 
     return(

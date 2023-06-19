@@ -60,6 +60,11 @@ function addMuseumFromForm(museum){
   setMuseums([...museums, museum])
 }
 
+function handleDeletePainting(deletedPainting){
+  const updatedPaintings= user.paintings.filter((painting) => painting.id !== deletedPainting.id);
+  console.log(updatedPaintings);
+}
+
   return (
     <div>
       <div id="app-header">
@@ -75,7 +80,7 @@ function addMuseumFromForm(museum){
                 <Route path='/add-museum' element={<AddMuseumForm addMuseumFromForm={addMuseumFromForm}/>}/>
                 <Route path='profile' element={<User user={user}/>}/>
                 <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums} addPaintingFromForm={addPaintingFromForm}/>}/>
-                <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user} newPainting={newPainting}/>}/>
+                <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user} onDeletePainting={handleDeletePainting}/>}/>
                 <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
                 <Route path="logout" element={<Logout/>}/> 
                 <Route path='*' element={<PageNotFound/>}/>
