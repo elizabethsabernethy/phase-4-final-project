@@ -1,41 +1,11 @@
 1. How to add new painting through add painting form instantly to dom? --AddPaintingForm/ UserPaintingCollection
 - not sure since its being added through the artist to their collection of paintings?
 
-3. Refreshing museum/:id/paintings page causes error because the museums prop being passed from app returns as an empty array. --> useRef?
-- tried useRef and same result
-//look at default state
-
-4. Paintings gotten through user don't have museum information, and paintings gotten through museum don't have artist information.
-- rails c shows the id of the corresponding thing... but console logging doesn't show artist (or museum) associted with painting.
-
 5. Delete painting gets "Unhandled Rejection (SyntaxError): Unexpected end of JSON input" error, but painting shows as deleted on refresh. --UserPaintingCollection
 
 6. How to get errors from add museum to alert properly? --AddMuseumForm
 
 7. How to change props passing of user state to utilize useContext()?
-
-AddPaintingForm
-- paintings are not added until page refreshed
-- how to add instantly?
-
-UserPaintingCollection
-- paintings do not have museum associated?
-- museum id seems visable in rails server in terminal?
-- how to get museum name to display with painting?
-- newPainting prop not console logging? ---> how to add new painting instantly?
-
-- delete painting gets "Unhandled Rejection (SyntaxError): Unexpected end of JSON input" error, but painting shows as deleted on refresh?
-
-User/ Museum
-- how to not have duplicate museums/ artists in profile page? ----> .uniq? in backend
-
-MuseumPaintingCollection
-- When getting paintings from museum, I cannot access artist info. In rails console I can find the artist id, but not when console logged through react.
-- Also how to get artist name with just artist_id?
-- On navigation from museums page to museums/:id/paintings, page loads correctly, however on refreshing the paintings page, the museums prop being passed from app returns as an empty array
-
-Add Musuem
-- figure out how to alert error(s) properly
 
 # Allow user to delete specific paintings, or update them
 

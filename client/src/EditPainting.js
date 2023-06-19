@@ -4,8 +4,7 @@ function EditPainting({painting, user}){
 
     const [paintingTitle, setPaintingTitle] = useState(painting.title);
     const [paintingImgUrl, setPaintingImgUrl] = useState(painting.img_url);
-    const [description, setDescription] = useState("");
-    const [museumValue, setMuseumValue] = useState("");
+    const [paintingDescription, setPaintingDescription] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const user_id = user.id
   
@@ -19,6 +18,8 @@ function EditPainting({painting, user}){
         },
         body: JSON.stringify({ 
             title: paintingTitle,
+            img_url: paintingImgUrl,
+            description: paintingDescription
         }),
       }).then((resp) => {
         setIsLoading(false);
@@ -53,19 +54,11 @@ function EditPainting({painting, user}){
                 <label htmlFor="description">Painting description</label>
                 <input
                     type="text"
-                    id="description"
-                    autoComplete="off"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    name={painting.description}
+                    defaultValue={painting.description}
+                    onChange={(e) => setPaintingDescription(e.target.value)}
                 />
-                <label htmlFor="museum">Museum</label>
-                <select id="museum" name="museum" onChange={(e) => setMuseumValue(e.target.value)}>
-                  <option>Select Museum</option>
-                    {museums.map((museum)=>{
-                        return <option key={museum.id} value={museum.id}>{museum.name}</option>
-                    })}
-                </select>
-                <button type="submit">{isLoading ? "Loading..." : "Add Painting"}</button>
+                <button type="submit">{isLoading ? "Loading..." : "Update Painting"}</button>
             </form>
         </div>
     

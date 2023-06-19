@@ -13,18 +13,24 @@ const museum = museums.find((museum)=>{
 })
 
         return(
-            //make conditional based on whether museum exists... setLoading?
         <div>
+            {museum ? 
+            <div>
              <div className="name-container">
-                    <h1>{museum.name} Collection</h1>
+            <h1>{museum.name} Collection</h1>
             </div>
             <div id="museum-paintings-container">
             {museum.paintings.map((painting)=>{
                 return <div key={painting.id}>
-                    <Painting painting={painting}></Painting>
+                    <Painting painting={painting} museum={museum}></Painting>
                 </div>
             })}
             </div>
+            </div> : 
+            <div> 
+            </div>
+            }
+            
         </div>
     )
 }
