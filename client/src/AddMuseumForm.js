@@ -25,7 +25,7 @@ function AddMuseumForm({addMuseumFromForm}){
             resp.json().then((data) => addMuseumFromForm(data));
             navigate('/museums')
           } else {
-            resp.json().then((err)=> console.log(err.error))
+            resp.json().then((err)=> alert((err.error)))
           }
         });
       }
