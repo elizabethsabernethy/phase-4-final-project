@@ -1,12 +1,15 @@
-function EditPainting({painting, user}){
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+function EditPainting({painting, user, museums}){
 
     const navigate = useNavigate()
 
     const [paintingTitle, setPaintingTitle] = useState(painting.title);
     const [paintingImgUrl, setPaintingImgUrl] = useState(painting.img_url);
-    const [paintingDescription, setPaintingDescription] = useState("");
+    const [paintingDescription, setPaintingDescription] = useState(painting.description);
+    const [paintingMuseum, setPaintingMuseum] = useState(painting.museum_id);
     const [isLoading, setIsLoading] = useState(false);
-    const user_id = user.id
   
     function handleSave(e) {
       e.preventDefault();
@@ -19,7 +22,8 @@ function EditPainting({painting, user}){
         body: JSON.stringify({ 
             title: paintingTitle,
             img_url: paintingImgUrl,
-            description: paintingDescription
+            description: paintingDescription,
+            museum_id: paintingMuseum
         }),
       }).then((resp) => {
         setIsLoading(false);
@@ -27,15 +31,16 @@ function EditPainting({painting, user}){
           resp.json().then((data) => console.log(data));
           navigate(`/profile/${user.id}/paintings`)
         } else {
-          resp.json().then((err) => alert(err.errors));
+          resp.json().then((err) => alert(err.error));
         }
       });
     }
-
-  
+    
     return(
         <div>
-            <h1 className="name-container">Add Painting</h1>
+          {painting.id ? 
+          <div>
+          <h1 className="name-container">Edit Painting</h1>
             <form onSubmit={handleSave}>
             <label htmlFor="title">Title</label>
                 <input
@@ -58,10 +63,17 @@ function EditPainting({painting, user}){
                     defaultValue={painting.description}
                     onChange={(e) => setPaintingDescription(e.target.value)}
                 />
+                <label htmlFor="museum">Museum</label>
+                <select id="museum" name="museum" onChange={(e) => setPaintingMuseum(e.target.value)}>
+                  <option>Select Museum</option>
+                    {museums.map((museum)=>{
+                        return <option key={museum.id} selected={painting.museum_id}>{museum.name}</option>
+                    })}
+                </select>
                 <button type="submit">{isLoading ? "Loading..." : "Update Painting"}</button>
             </form>
+            </div> : navigate(`/profile/${user.id}/paintings`)}
         </div>
-    
     )
 }
 

@@ -2,8 +2,6 @@
 - not sure since its being added through the artist to their collection of paintings?
 - similar effect for updating and deleting
 
-6. How to get errors from add museum to alert properly? --AddMuseumForm
-
 7. How to change props passing of user state to utilize useContext()?
 
 # Allow user to delete specific paintings, or update them

@@ -1,11 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import Painting from "./Painting";
 
-function UserPaintingCollection({user, onDeletePainting}){
+function UserPaintingCollection({user, onDeletePainting, onEditPainting}){
 
     const paintings = user.id? user.paintings : []
+    const navigate = useNavigate();
 
-    function editPainting(){
-        console.log("edit")
+    function editPainting(painting){
+        onEditPainting(painting)
+        navigate(`${painting.id}/edit-painting`)
     }
 
     function deletePainting(painting){
@@ -27,7 +30,7 @@ function UserPaintingCollection({user, onDeletePainting}){
                     {paintings.length < 1 ? "Please add paintings" :
                     <div>
                     <Painting painting={painting}></Painting>
-                    <button onClick={editPainting} className="painting-button">Edit Painting</button>
+                    <button onClick={()=> editPainting(painting)} className="painting-button">Edit Painting</button>
                     <button onClick={()=> deletePainting(painting)} className="painting-button">Delete Painting</button>
                     </div>
                     }

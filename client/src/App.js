@@ -12,11 +12,13 @@ import Logout from "./Logout";
 import AddPaintingForm from "./AddPaintingForm";
 import UserPaintingCollection from "./UserPaintingCollection";
 import AddMuseumForm from "./AddMuseumForm";
+import EditPainting from "./EditPainting";
 
 function App() {
   const [user, setUser] = useState({});
   const [museums, setMuseums] = useState([]);
   const [newPainting, setNewPainting] = useState({});
+  const [paintingInEdit, setPaintingInEdit] = useState({});
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -65,6 +67,10 @@ function handleDeletePainting(deletedPainting){
   console.log(updatedPaintings);
 }
 
+function handleEditPainting(painting){
+  setPaintingInEdit(painting)
+}
+
   return (
     <div>
       <div id="app-header">
@@ -75,14 +81,15 @@ function handleDeletePainting(deletedPainting){
          
         <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='museums' element={<Museums museums={museums} user={user}/>}/>
-                <Route path='museums/:museum_id/paintings' element={<MuseumPaintingCollection museums={museums}/>}/>
+                <Route path='/museums' element={<Museums museums={museums} user={user}/>}/>
+                <Route path='/museums/:museum_id/paintings' element={<MuseumPaintingCollection museums={museums}/>}/>
                 <Route path='/add-museum' element={<AddMuseumForm addMuseumFromForm={addMuseumFromForm}/>}/>
-                <Route path='profile' element={<User user={user}/>}/>
-                <Route path='profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums} addPaintingFromForm={addPaintingFromForm}/>}/>
-                <Route path='profile/:user_id/paintings' element={<UserPaintingCollection user={user} onDeletePainting={handleDeletePainting}/>}/>
-                <Route path="login" element={<LoginOrSignupPage setUser={setUser}/>}/>
-                <Route path="logout" element={<Logout/>}/> 
+                <Route path='/profile' element={<User user={user}/>}/>
+                <Route path='/profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums} addPaintingFromForm={addPaintingFromForm}/>}/>
+                <Route path='/profile/:user_id/paintings' element={<UserPaintingCollection user={user} onDeletePainting={handleDeletePainting} onEditPainting={handleEditPainting}/>}/>
+                <Route path='/profile/:user_id/paintings/:painting_id/edit-painting' element={<EditPainting user={user} museums={museums} painting={paintingInEdit}/>}/>
+                <Route path="/login" element={<LoginOrSignupPage setUser={setUser}/>}/>
+                <Route path="/logout" element={<Logout/>}/> 
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>
     </div>
