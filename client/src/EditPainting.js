@@ -35,7 +35,7 @@ function EditPainting({painting, user, museums}){
         }
       });
     }
-    
+
     return(
         <div>
           {painting.id ? 

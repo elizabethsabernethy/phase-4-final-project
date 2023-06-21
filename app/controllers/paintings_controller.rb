@@ -40,7 +40,7 @@ before_action :authorize, only: [:show]
     private
 
     def painting_params
-        params.permit(:title, :img_url, :description, :artist_id, :museum_id)
+        params.permit(:title, :img_url, :description, :artist_id, :museum_id, :id)
     end
 
     def render_not_found_response

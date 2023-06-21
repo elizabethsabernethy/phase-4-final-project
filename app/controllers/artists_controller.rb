@@ -26,7 +26,7 @@ class ArtistsController < ApplicationController
     def update
         artist = Artist.find(params[:id])
         artist.update!(artist_params)
-        render json: artist, include: [:paintings, :museums], status: :updated
+        render json: artist, status: :updated
     end
 
     def destroy

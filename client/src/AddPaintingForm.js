@@ -20,7 +20,7 @@ function AddPaintingForm({user, museums, addPaintingFromForm}){
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ title, img_url: imgUrl, description, user_id, museum_id: museumValue }),
+        body: JSON.stringify({ title, img_url: imgUrl, description, artist_id: user_id, museum_id: museumValue }),
       }).then((resp) => {
         setIsLoading(false);
         if (resp.ok) {

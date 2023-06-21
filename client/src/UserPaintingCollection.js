@@ -12,7 +12,7 @@ function UserPaintingCollection({user, onDeletePainting, onEditPainting}){
     }
 
     function deletePainting(painting){
-        fetch(`http://localhost:3000/profile/${user.id}/paintings/${painting.id}`, {
+        fetch(`/artists/${user.id}/paintings/${painting.id}`, {
           method: "DELETE",
           })
             .then((resp) => resp.json())

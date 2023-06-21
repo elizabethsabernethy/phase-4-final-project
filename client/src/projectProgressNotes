@@ -2,6 +2,8 @@
 - not sure since its being added through the artist to their collection of paintings?
 - similar effect for updating and deleting
 
+2. Delete paintings getting unexpected end of input error
+
 7. How to change props passing of user state to utilize useContext()?
 
 # Allow user to delete specific paintings, or update them
