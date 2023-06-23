@@ -15,7 +15,6 @@ function UserPaintingCollection({user, onDeletePainting, onEditPainting}){
         fetch(`/artists/${user.id}/paintings/${painting.id}`, {
           method: "DELETE",
           })
-            .then((resp) => resp.json())
             .then(() => onDeletePainting(painting));
     }
 

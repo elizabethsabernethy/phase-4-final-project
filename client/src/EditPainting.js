@@ -67,7 +67,7 @@ function EditPainting({painting, user, museums}){
                 <select id="museum" name="museum" onChange={(e) => setPaintingMuseum(e.target.value)}>
                   <option>Select Museum</option>
                     {museums.map((museum)=>{
-                        return <option key={museum.id} selected={painting.museum_id}>{museum.name}</option>
+                        return <option key={museum.id} value={painting.museum_id} selected={painting.museum_id}>{museum.name}</option>
                     })}
                 </select>
                 <button type="submit">{isLoading ? "Loading..." : "Update Painting"}</button>

@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState, useContext} from "react";
 import { useNavigate } from "react-router-dom"
 import Home from "./Home";
 import Museums from "./Museums";
@@ -13,13 +13,17 @@ import AddPaintingForm from "./AddPaintingForm";
 import UserPaintingCollection from "./UserPaintingCollection";
 import AddMuseumForm from "./AddMuseumForm";
 import EditPainting from "./EditPainting";
+import { UserContext } from "./context/UserContext";
 
 function App() {
-  const [user, setUser] = useState({});
   const [museums, setMuseums] = useState([]);
   const [newPainting, setNewPainting] = useState({});
   const [paintingInEdit, setPaintingInEdit] = useState({});
   const navigate = useNavigate()
+  const {user, setUser, handleLogout} = useContext(UserContext);
+  // const data = useContext(UserContext);
+
+  // console.log(data)
 
   useEffect(()=>{
     fetch('http://localhost:3000/museums')
@@ -27,25 +31,6 @@ function App() {
     .then((museums) => setMuseums(museums))
 },[])
 
-  useEffect(()=>{
-    fetch("/me")
-    .then((resp)=>{
-      if(resp.ok){
-       resp.json().then((data)=> {
-        setUser(data)
-      })
-      }
-      })
-  },[])
-
-  function handleLogout(){
-    navigate("/logout")
-    fetch("/logout", { method: "DELETE" }).then((resp) => {
-      if (resp.ok) {
-        setUser({});
-      }
-    });
-  }
 
   function addPaintingFromForm(painting){
     //update paintings array for user object
@@ -81,7 +66,7 @@ function handleEditPainting(painting){
          
         <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='/museums' element={<Museums museums={museums} user={user}/>}/>
+                <Route path='/museums' element={<Museums museums={museums}/>}/>
                 <Route path='/museums/:museum_id/paintings' element={<MuseumPaintingCollection museums={museums}/>}/>
                 <Route path='/add-museum' element={<AddMuseumForm addMuseumFromForm={addMuseumFromForm}/>}/>
                 <Route path='/profile' element={<User user={user}/>}/>

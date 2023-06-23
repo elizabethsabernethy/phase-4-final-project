@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom"
 import Museum from "./Museum"
+import { UserContext } from "./context/UserContext";
 
-function Museums({museums, user}){
+function Museums({museums}){
 
 const navigate = useNavigate();
+const {user} = useContext(UserContext);
 
     function addMuseum(){
         navigate(`/add-museum`)
