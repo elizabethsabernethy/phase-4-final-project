@@ -21,9 +21,6 @@ function App() {
   const [paintingInEdit, setPaintingInEdit] = useState({});
   const navigate = useNavigate()
   const {user, setUser, handleLogout} = useContext(UserContext);
-  // const data = useContext(UserContext);
-
-  // console.log(data)
 
   useEffect(()=>{
     fetch('http://localhost:3000/museums')
@@ -69,11 +66,11 @@ function handleEditPainting(painting){
                 <Route path='/museums' element={<Museums museums={museums}/>}/>
                 <Route path='/museums/:museum_id/paintings' element={<MuseumPaintingCollection museums={museums}/>}/>
                 <Route path='/add-museum' element={<AddMuseumForm addMuseumFromForm={addMuseumFromForm}/>}/>
-                <Route path='/profile' element={<User user={user}/>}/>
-                <Route path='/profile/:user_id/add-painting' element={<AddPaintingForm user={user} museums={museums} addPaintingFromForm={addPaintingFromForm}/>}/>
-                <Route path='/profile/:user_id/paintings' element={<UserPaintingCollection user={user} onDeletePainting={handleDeletePainting} onEditPainting={handleEditPainting}/>}/>
-                <Route path='/profile/:user_id/paintings/:painting_id/edit-painting' element={<EditPainting user={user} museums={museums} painting={paintingInEdit}/>}/>
-                <Route path="/login" element={<LoginOrSignupPage setUser={setUser}/>}/>
+                <Route path='/profile' element={<User/>}/>
+                <Route path='/profile/:user_id/add-painting' element={<AddPaintingForm museums={museums} addPaintingFromForm={addPaintingFromForm}/>}/>
+                <Route path='/profile/:user_id/paintings' element={<UserPaintingCollection onDeletePainting={handleDeletePainting} onEditPainting={handleEditPainting}/>}/>
+                <Route path='/profile/:user_id/paintings/:painting_id/edit-painting' element={<EditPainting museums={museums} painting={paintingInEdit}/>}/>
+                <Route path="/login" element={<LoginOrSignupPage/>}/>
                 <Route path="/logout" element={<Logout/>}/> 
                 <Route path='*' element={<PageNotFound/>}/>
             </Routes>

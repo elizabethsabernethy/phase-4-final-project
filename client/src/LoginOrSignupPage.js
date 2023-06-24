@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
+import { UserContext } from "./context/UserContext";
 
-function LoginOrSignupPage({setUser}){
+function LoginOrSignupPage(){
 
  const [showLogin, setShowLogin] = useState(true);
+ const {setUser} = useContext(UserContext);
 
   return (
       <div>

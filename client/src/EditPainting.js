@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "./context/UserContext";
 
-function EditPainting({painting, user, museums}){
+function EditPainting({painting, museums}){
 
     const navigate = useNavigate()
 
@@ -10,6 +11,7 @@ function EditPainting({painting, user, museums}){
     const [paintingDescription, setPaintingDescription] = useState(painting.description);
     const [paintingMuseum, setPaintingMuseum] = useState(painting.museum_id);
     const [isLoading, setIsLoading] = useState(false);
+    const {user} = useContext(UserContext);
   
     function handleSave(e) {
       e.preventDefault();

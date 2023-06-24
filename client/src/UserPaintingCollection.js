@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import Painting from "./Painting";
+import { useContext } from "react";
+import { UserContext } from "./context/UserContext";
 
-function UserPaintingCollection({user, onDeletePainting, onEditPainting}){
+function UserPaintingCollection({onDeletePainting, onEditPainting}){
 
+    const {user} = useContext(UserContext);
     const paintings = user.id? user.paintings : []
     const navigate = useNavigate();
-
+    
     function editPainting(painting){
         onEditPainting(painting)
         navigate(`${painting.id}/edit-painting`)
