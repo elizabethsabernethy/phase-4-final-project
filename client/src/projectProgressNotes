@@ -1,3 +1,7 @@
 1. How to add new painting through add painting form instantly to dom? --AddPaintingForm/ UserPaintingCollection
 - not sure since its being added through the artist to their collection of paintings?
 - similar effect for updating and deleting
+
+# museum updating for user upon additon of new paitning being weird. ref notes in app inside of handle add painting function. 
+# user paintings updating correctly but still not instantly refelcting in dom ---> setUSER?
+

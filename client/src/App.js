@@ -17,7 +17,6 @@ import { UserContext } from "./context/UserContext";
 
 function App() {
   const [museums, setMuseums] = useState([]);
-  const [newPainting, setNewPainting] = useState({});
   const [paintingInEdit, setPaintingInEdit] = useState({});
   const navigate = useNavigate()
   const {user, setUser, handleLogout} = useContext(UserContext);
@@ -30,6 +29,24 @@ function App() {
 
 
   function addPaintingFromForm(painting){
+    user.paintings.push(painting)
+    const museum = user.uniqueMuseums.find((museum)=>{
+      return museum.id === painting.museum_id
+  })
+  if(museum === undefined){
+    const newMuseum = museums.find((museum)=>{
+      return museum.id = painting.museum_id
+    })
+    user.uniqueMuseums.push(newMuseum)
+  }
+
+  //LOOK AT NOTES IMMEDIATELY BELOW!!!!!!!!
+  console.log(painting.museum_id) //returns correct id
+  console.log(user.uniqueMuseums) //returns american institute of art regardless of painting.museum_id if museum is undefined
+
+
+
+
     //update paintings array for user object
     //update museums array for the user object if the museum for the painting isn't present in the users museums array
     //setUser with new painting
@@ -37,7 +54,6 @@ function App() {
     //update the cooresponding museum with new painting
     //update artists array for the museum object if the artists for the painting isn't present in the museum's artists array
     //setMuseums with new painting
-    setNewPainting(painting)
 }
 
 function addMuseumFromForm(museum){

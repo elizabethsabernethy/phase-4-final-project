@@ -27,7 +27,7 @@ function AddPaintingForm({museums, addPaintingFromForm}){
         setIsLoading(false);
         if (resp.ok) {
           resp.json().then((data) => addPaintingFromForm(data));
-          navigate('/profile')
+          navigate(`/profile/${user.id}/paintings`)
         } else {
           resp.json().then((err) => alert((err.error)));
         }
