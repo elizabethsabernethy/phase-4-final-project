@@ -65,7 +65,27 @@ function addMuseumFromForm(museum){
 
 function handleDeletePainting(deletedPainting){
   const updatedPaintings= user.paintings.filter((painting) => painting.id !== deletedPainting.id);
-  console.log(updatedPaintings);
+  const updatedMuseums= user.uniqueMuseums.filter((museum)=> museum.id !== deletedPainting.museum_id)
+  const updatedUser = {
+    id: user.id,
+    name: user.name,
+    username: user.username,
+    paintings: [...updatedPaintings],
+    uniqueMuseums: [...updatedMuseums]
+  }
+  console.log(updatedMuseums)
+  setUser(updatedUser)
+
+  const museumOfPainting = museums.find((museum)=>{
+    return museum.id === deletedPainting.museum_id
+  })
+
+  const updatedMuseumPaintings= museumOfPainting.paintings.filter((painting)=> painting.id !== deletedPainting.id)
+  const updatedMuseumArtists= museumOfPainting.uniqueArtists.filter((artist)=> artist.id !== deletedPainting.artist_id)
+  
+  museumOfPainting.paintings = updatedMuseumPaintings;
+  museumOfPainting.uniqueArtists = updatedMuseumArtists;
+  
 }
 
 function handleEditPainting(painting){
