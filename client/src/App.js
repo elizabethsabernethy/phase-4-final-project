@@ -72,6 +72,46 @@ function handleEditPainting(painting){
   setPaintingInEdit(painting)
 }
 
+function onEditPainting(editedPainting){
+  const updatedPaintings = user.paintings.map((painting) => {
+    if (painting.id === editedPainting.id) {
+      return editedPainting;
+    } else {
+      return painting;
+    }
+  });
+  const museum = user.uniqueMuseums.find((museum)=>{
+    return museum.id === editedPainting.museum_id
+  })
+  if(museum === undefined){
+    const newMuseum = museums.find((museum)=>{
+      return museum.id === editedPainting.museum_id
+    })
+    user.uniqueMuseums.push(newMuseum)
+  }
+  const updatedUser = {
+    id: user.id,
+    name: user.name,
+    username: user.username,
+    paintings: [...updatedPaintings],
+    uniqueMuseums: [...user.uniqueMuseums]
+  }
+  setUser(updatedUser)
+
+  const museumOfNewPainting = museums.find((museum)=>{
+    return museum.id === editedPainting.museum_id
+  })
+
+  museumOfNewPainting.paintings.push(editedPainting)
+
+  const artist = museumOfNewPainting.uniqueArtists.find((artist)=>{
+    return artist.id === editedPainting.artist_id
+  })
+  if(artist === undefined){
+    museumOfNewPainting.uniqueArtists.push(user)
+  }
+}
+
   return (
     <div>
       <div id="app-header">
@@ -88,7 +128,7 @@ function handleEditPainting(painting){
                 <Route path='/profile' element={<User/>}/>
                 <Route path='/profile/:user_id/add-painting' element={<AddPaintingForm museums={museums} addPaintingFromForm={addPaintingFromForm}/>}/>
                 <Route path='/profile/:user_id/paintings' element={<UserPaintingCollection onDeletePainting={handleDeletePainting} onEditPainting={handleEditPainting}/>}/>
-                <Route path='/profile/:user_id/paintings/:painting_id/edit-painting' element={<EditPainting museums={museums} painting={paintingInEdit}/>}/>
+                <Route path='/profile/:user_id/paintings/:painting_id/edit-painting' element={<EditPainting museums={museums} painting={paintingInEdit} onEditPainting={onEditPainting}/>}/>
                 <Route path="/login" element={<LoginOrSignupPage/>}/>
                 <Route path="/logout" element={<Logout/>}/> 
                 <Route path='*' element={<PageNotFound/>}/>

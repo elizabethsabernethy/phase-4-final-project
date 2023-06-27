@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "./context/UserContext";
 
-function EditPainting({painting, museums}){
+function EditPainting({painting, museums, onEditPainting}){
 
     const navigate = useNavigate()
 
@@ -12,6 +12,14 @@ function EditPainting({painting, museums}){
     const [paintingMuseum, setPaintingMuseum] = useState(painting.museum_id);
     const [isLoading, setIsLoading] = useState(false);
     const {user} = useContext(UserContext);
+
+    const updatedMuseum = museums.find((museum)=>{
+      return museum.name === paintingMuseum
+    })
+
+    const defaultMuseum = museums.find((museum)=>{
+      return museum.id === painting.museum_id
+    })
   
     function handleSave(e) {
       e.preventDefault();
@@ -25,12 +33,12 @@ function EditPainting({painting, museums}){
             title: paintingTitle,
             img_url: paintingImgUrl,
             description: paintingDescription,
-            museum_id: paintingMuseum
+            museum_id: updatedMuseum.id
         }),
       }).then((resp) => {
         setIsLoading(false);
         if (resp.ok) {
-          resp.json().then((data) => console.log(data));
+          resp.json().then((data) => onEditPainting(data));
           navigate(`/profile/${user.id}/paintings`)
         } else {
           resp.json().then((err) => alert(err.error));
@@ -69,7 +77,7 @@ function EditPainting({painting, museums}){
                 <select id="museum" name="museum" onChange={(e) => setPaintingMuseum(e.target.value)}>
                   <option>Select Museum</option>
                     {museums.map((museum)=>{
-                        return <option key={museum.id} value={painting.museum_id} selected={painting.museum_id}>{museum.name}</option>
+                        return <option key={museum.id} defaultValue={painting.museum_id}>{museum.name}</option>
                     })}
                 </select>
                 <button type="submit">{isLoading ? "Loading..." : "Update Painting"}</button>

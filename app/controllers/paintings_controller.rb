@@ -27,7 +27,6 @@ before_action :authorize, only: [:show]
     
     def update
         painting = Painting.find(params[:id])
-        byebug
         painting.update!(painting_params)
         render json: painting, status: :accepted
     end
