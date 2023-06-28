@@ -73,7 +73,7 @@ function handleDeletePainting(deletedPainting){
     paintings: [...updatedPaintings],
     uniqueMuseums: [...updatedMuseums]
   }
-  console.log(updatedMuseums)
+
   setUser(updatedUser)
 
   const museumOfPainting = museums.find((museum)=>{
@@ -122,6 +122,11 @@ function onEditPainting(editedPainting){
     return museum.id === editedPainting.museum_id
   })
 
+  const paintings = museumOfNewPainting.paintings.filter((painting)=>{
+    return painting.id !== editedPainting.id
+  })
+
+  museumOfNewPainting.paintings = paintings
   museumOfNewPainting.paintings.push(editedPainting)
 
   const artist = museumOfNewPainting.uniqueArtists.find((artist)=>{
