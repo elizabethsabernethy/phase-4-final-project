@@ -1,64 +1,28 @@
+# Phase 4 Final Project: Off the Arts
 
-  # Off the arts
+This project utilized create-react-app to structure a basic react website, from which I adjusted to meet the specific paramters for the app I wanted to create. I also forked and cloned a backend Ruby repository from the Flatiron school (https://github.com/learn-co-curriculum/project-template-react-rails-api) and added the required migrations and request routes in the application controller to allow an easy connection between the frontend and backend. Function based components are the primary features of react which this app uses to create functionality. The backend utilizes Ruby on Rails to create optimal functionality primarily through validations and serializers.  
 
-  # ** include react routing and required nav component **
-  
-  # an artist can sign up
-  # an artist should be able to login and remain logged in
-  # an artist should be able to logout
-  - an artist should be able to delete profile and all associated paintings
+## Purpose of Project
 
+The purpose of this website is to act as a platform for users to post their paintings. Non-account holders are able to view the homepage, as well as the museums page, in which they are able to further view respective paintings and artists associated with the museums. The primary focus of the website however requires a user to have an account. Through having an account, a user can add paintings, edit their respective paintings, delete their paintings, and even add museums if their paintings are featured somewhere not already listed. 
 
-  - an artist can delete painting
-  - an artist can update painting info
+When a user first enters the website, they will see the Off the Arts homepage. Here they are able to view the naviagtion bar which houses the home tab, the museums tab, and a button for users to login (or sign-up). As mentioned before, if not logged into an account, the only thing a user can do is interact with the featured museums.
 
-  - an artist can view all paintings in their collection
+![museum-gif](https://imgur.com/urDPPUy.gif)
 
-  # backend done -collector can view all museums 
-  # backend done -collector can view one museum
-  # backend done -collector can add museum to list
+Once they have viewed the respective artists, and paintings for whichever museums they desired, they may decide to sign-up or log into their account.
 
-- Add a painting form (only if signed in)
-  - an artist adds name and description through text input box
-  - an artist adds museum through dropdown selction
-  - painting is added to an artist collection
+![signup-gif](https://imgur.com/xO0kvLU.gif)
+![login-gif](https://imgur.com/u5ek5vH.gif)
 
-  - In paintings page: user can filter paintings by title (search bar), artists (last name a-f, g-m, n-s, t-z), museum (search bar), or in my collection (toggle) (if signed in)
+Once logged in, a user is taken to their profile page. Here they can view their paintings, add paintings, and see the museums their paintings are currently featured in. Being logged in also allows users to add museums, if they navigate back to the museums page. Both adding a painting and a museum have similar functionality, and are added without the need for a page refresh. The primary difference between paintings and museums however, is the capability to edit and/or delete paintings. When a painting is added, edited or deleted, these changes are reflected both in the users profile, as well as the museum which houses the painting. 
 
- ** alphabetical pagination -- fetch request
+![painting-gif](https://imgur.com/8jdr7ea.gif)
 
- ** fetches within ruby, within seed file... pull data and loop through, API that has museums and/or paintings
+Once the user is finished with whatever they're doing, they can click the logout button, and they will return to the homepage.
 
- ** building instances w/o needed belongs_to
+![logout-gif](https://imgur.com/b4qCN9N.gif)
 
- ** db:rollback db:drop
+# Sources/ References
 
-  - In my collection page: collector  can filter paintings by title (search bar), artists (last name a-f, g-m, n-s, t-z), museum (search bar)
-
-  # Models: https://dbdiagram.io/d/644693086b319470511aa29a
-  1. Museums= has_many :paintings, has_many :artists, through: :paintings
-  2. Artists= has_many :paintings, has_many :museums, through :paintings
-  3. Paintings= belongs_to :museum, belongs_to :artist (joins table)
-
-# Validations
-- Museum : must have name and be unique
-- Artist: must have unqiue username, and name, and password
-- Painting: must have title, artist, museum, and img_url
-
-Use controller validations to alter back end json response to front end. The response should pass your object if the creation, update, or deletion succeeds. However, the response should pass error messages to the front end and display them if the action fails. HINT: Utilize record.errors.
-
-Properly update front end state upon successful response from a POST, PATCH, or DELETE request. That is to say, you should NOT rely on another GET request or redirect to update front end state of your application.
-
-# Frontend Routes
- - Homepage with blurb about site and sign up option, App houses nav bar ----> Homepage / Museums / Paintings / My Collection (My collection only shows up if user is signed in)
-
-Implement authentication/authorization, including password protection. A user must be able to:
-sign up with a new user account,
-log in to the site with a secure password and stay logged in via user ID in the session hash, and
-log out of the site.
-Use the React hook useContext to persist your logged in user object in front end state and avoid props drilling.
-
-# Notes
-
-- user (someone who isn't signed in), should not be able to add/remove/update paintings, or view anything specific to 'their' collection (i.e. my collection page, not in my collection filter, etc...)
-- from flatiron: a user should only be able to edit and delete resources if they are logged in and the creator of that resource. For example, if we consider the example described below with models of User, DogHouse, and Review, I would only be able to edit or delete the reviews that I created. This protection should occur in the back end of the project. Simply altering the front end to hide the edit & delete buttons is insufficient in terms of security.
+Youtube Walk-through: https://www.youtube.com/watch?v=f3qZ9PVQ0bE
