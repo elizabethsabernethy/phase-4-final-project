@@ -74,10 +74,10 @@ function EditPainting({painting, museums, onEditPainting}){
                     onChange={(e) => setPaintingDescription(e.target.value)}
                 />
                 <label htmlFor="museum">Museum</label>
-                <select id="museum" name="museum" onChange={(e) => setPaintingMuseum(e.target.value)}>
+                <select id="museum" name="museum" defaultValue={painting.museum_id} onChange={(e) => setPaintingMuseum(e.target.value)}>
                   <option>Select Museum</option>
                     {museums.map((museum)=>{
-                        return <option key={museum.id} defaultValue={painting.museum_id}>{museum.name}</option>
+                        return <option key={museum.id} value={museum.id}>{museum.name}</option>
                     })}
                 </select>
                 <button type="submit">{isLoading ? "Loading..." : "Update Painting"}</button>
