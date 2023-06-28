@@ -12,14 +12,6 @@ function EditPainting({painting, museums, onEditPainting}){
     const [paintingMuseum, setPaintingMuseum] = useState(painting.museum_id);
     const [isLoading, setIsLoading] = useState(false);
     const {user} = useContext(UserContext);
-
-    const updatedMuseum = museums.find((museum)=>{
-      return museum.name === paintingMuseum
-    })
-
-    const defaultMuseum = museums.find((museum)=>{
-      return museum.id === painting.museum_id
-    })
   
     function handleSave(e) {
       e.preventDefault();
@@ -33,7 +25,7 @@ function EditPainting({painting, museums, onEditPainting}){
             title: paintingTitle,
             img_url: paintingImgUrl,
             description: paintingDescription,
-            museum_id: updatedMuseum.id
+            museum_id: paintingMuseum
         }),
       }).then((resp) => {
         setIsLoading(false);
