@@ -40,6 +40,8 @@ function EditPainting({painting, museums, onEditPainting}){
 
     return(
         <div>
+          {user.id? 
+          <div>
           {painting.id ? 
           <div>
           <h1 className="name-container">Edit Painting</h1>
@@ -75,6 +77,10 @@ function EditPainting({painting, museums, onEditPainting}){
                 <button type="submit">{isLoading ? "Loading..." : "Update Painting"}</button>
             </form>
             </div> : navigate(`/profile/${user.id}/paintings`)}
+            </div> :
+            <div>
+              <h2>Please login to edit a painting</h2>
+            </div>}
         </div>
     )
 }

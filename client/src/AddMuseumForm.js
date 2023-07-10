@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "./context/UserContext";
+import { useContext } from "react";
 
 function AddMuseumForm({addMuseumFromForm}){
 
     const navigate = useNavigate()
+
+    const {user} = useContext(UserContext);
 
     const [name, setName] = useState("");
     const [imgUrl, setImgUrl] = useState("");
@@ -32,6 +36,8 @@ function AddMuseumForm({addMuseumFromForm}){
 
     return(
         <div>
+          {user.id? 
+          <div>
             <h1 className="name-container">Add Museum</h1>
             <form onSubmit={handleSubmit}>
             <label htmlFor="name">Name</label>
@@ -60,6 +66,11 @@ function AddMuseumForm({addMuseumFromForm}){
                 />
                 <button type="submit">{isLoading ? "Loading..." : "Add Museum"}</button>
             </form>
+            </div> : 
+            <div>
+            <h2> Please login to add a museum</h2>
+            </div>
+            }
         </div>
     )
 }

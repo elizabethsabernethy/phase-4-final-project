@@ -2,7 +2,7 @@ class MuseumsController < ApplicationController
 
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-before_action :authorize, only: [:show]  
+before_action :authorize, only: [:create]  
 
     def index
         museums = Museum.all.order(name: :asc)

@@ -37,6 +37,8 @@ function AddPaintingForm({museums, addPaintingFromForm}){
   
     return(
         <div>
+          {user.id? 
+          <div>
             <h1 className="name-container">Add Painting</h1>
             <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title</label>
@@ -72,6 +74,10 @@ function AddPaintingForm({museums, addPaintingFromForm}){
                 </select>
                 <button type="submit">{isLoading ? "Loading..." : "Add Painting"}</button>
             </form>
+            </div>:
+            <div>
+              <h2>Please login to add a painting</h2>
+            </div>}
         </div>
     
     )
