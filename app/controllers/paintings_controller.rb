@@ -26,13 +26,13 @@ before_action :authorize, only: [:create, :update, :destroy]
     end
     
     def update
-        painting = Painting.find(params[:id])
+        painting = Artist.find_by(id: session[:user_id]).paintings.find(params[:id])
         painting.update!(painting_params)
         render json: painting, status: :accepted
     end
 
     def destroy
-        painting = Painting.find(params[:id])
+        painting = Artist.find_by(id: session[:user_id]).paintings.find(params[:id])
         painting.destroy
         head :no_content
     end
