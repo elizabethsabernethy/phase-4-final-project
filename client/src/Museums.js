@@ -9,7 +9,7 @@ const navigate = useNavigate();
 const {user} = useContext(UserContext);
 
     function addMuseum(){
-        navigate(`/add-museum`)
+        navigate(`/museums/new`)
     }
 
     return(

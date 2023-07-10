@@ -11,7 +11,7 @@ function UserPaintingCollection({onDeletePainting, onEditPainting}){
     
     function editPainting(painting){
         onEditPainting(painting)
-        navigate(`${painting.id}/edit-painting`)
+        navigate(`${painting.id}/edit`)
     }
 
     function deletePainting(painting){

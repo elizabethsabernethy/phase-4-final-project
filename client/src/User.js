@@ -13,7 +13,7 @@ function User(){
         navigate(`${user.id}/paintings`)
     }
     function addPaintingClick(){
-        navigate(`${user.id}/add-painting`)
+        navigate(`${user.id}/paintings/new`)
     }
 
     return(
