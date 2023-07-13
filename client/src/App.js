@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext} from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useResolvedPath } from "react-router-dom"
 import Home from "./Home";
 import Museums from "./Museums";
 import NavBar from "./NavBar";
@@ -28,22 +28,19 @@ function App() {
 },[])
 
   function addPaintingFromForm(painting){ 
-    user.paintings.push(painting)
-    const museum = user.uniqueMuseums.find((museum)=>{
-      return museum.id === painting.museum_id
-    })
-    if(museum === undefined){
-      const newMuseum = museums.find((museum)=>{
-        return museum.id === painting.museum_id
-      })
-      user.uniqueMuseums.push(newMuseum)
+    const updatedPaintings = [...user.paintings, painting]
+    const museum = user.museums.find((museum)=> museum.id === painting.museum_id)
+    let updatedMuseums = [...user.museums];
+    if(!museum){
+      const newMuseum = museums.find((museum)=> museum.id === painting.museum_id)
+      updatedMuseums = [...user.museums, newMuseum]
     }
     const updatedUser = {
       id: user.id,
       name: user.name,
       username: user.username,
-      paintings: [...user.paintings],
-      uniqueMuseums: [...user.uniqueMuseums]
+      paintings: updatedPaintings,
+      museums: updatedMuseums
     }
     setUser(updatedUser)
     
@@ -51,11 +48,11 @@ function App() {
       return museum.id === painting.museum_id
     })
     museumOfNewPainting.paintings.push(painting)
-    const artist = museumOfNewPainting.uniqueArtists.find((artist)=>{
+    const artist = museumOfNewPainting.artists.find((artist)=>{
       return artist.id === painting.artist_id
     })
     if(artist === undefined){
-      museumOfNewPainting.uniqueArtists.push(user)
+      museumOfNewPainting.artists.push(user)
     }
 }
 
@@ -65,13 +62,13 @@ function addMuseumFromForm(museum){
 
 function handleDeletePainting(deletedPainting){
   const updatedPaintings= user.paintings.filter((painting) => painting.id !== deletedPainting.id);
-  const updatedMuseums= user.uniqueMuseums.filter((museum)=> museum.id !== deletedPainting.museum_id)
+  const updatedMuseums= user.museums.filter((museum)=> museum.id !== deletedPainting.museum_id)
   const updatedUser = {
     id: user.id,
     name: user.name,
     username: user.username,
     paintings: [...updatedPaintings],
-    uniqueMuseums: [...updatedMuseums]
+    museums: [...updatedMuseums]
   }
 
   setUser(updatedUser)
@@ -81,10 +78,10 @@ function handleDeletePainting(deletedPainting){
   })
 
   const updatedMuseumPaintings= museumOfPainting.paintings.filter((painting)=> painting.id !== deletedPainting.id)
-  const updatedMuseumArtists= museumOfPainting.uniqueArtists.filter((artist)=> artist.id !== deletedPainting.artist_id)
+  const updatedMuseumArtists= museumOfPainting.artists.filter((artist)=> artist.id !== deletedPainting.artist_id)
   
   museumOfPainting.paintings = updatedMuseumPaintings;
-  museumOfPainting.uniqueArtists = updatedMuseumArtists;
+  museumOfPainting.artists = updatedMuseumArtists;
   
 }
 
@@ -100,21 +97,21 @@ function onEditPainting(editedPainting){
       return painting;
     }
   });
-  const museum = user.uniqueMuseums.find((museum)=>{
+  const museum = user.museums.find((museum)=>{
     return museum.id === editedPainting.museum_id
   })
   if(museum === undefined){
     const newMuseum = museums.find((museum)=>{
       return museum.id === editedPainting.museum_id
     })
-    user.uniqueMuseums.push(newMuseum)
+    user.museums.push(newMuseum)
   }
   const updatedUser = {
     id: user.id,
     name: user.name,
     username: user.username,
     paintings: [...updatedPaintings],
-    uniqueMuseums: [...user.uniqueMuseums]
+    museums: [...user.museums]
   }
   setUser(updatedUser)
 
@@ -129,11 +126,11 @@ function onEditPainting(editedPainting){
   museumOfNewPainting.paintings = paintings
   museumOfNewPainting.paintings.push(editedPainting)
 
-  const artist = museumOfNewPainting.uniqueArtists.find((artist)=>{
+  const artist = museumOfNewPainting.artists.find((artist)=>{
     return artist.id === editedPainting.artist_id
   })
   if(artist === undefined){
-    museumOfNewPainting.uniqueArtists.push(user)
+    museumOfNewPainting.artists.push(user)
   }
 }
 

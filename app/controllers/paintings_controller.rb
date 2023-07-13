@@ -21,6 +21,7 @@ before_action :authorize, only: [:create, :update, :destroy]
     end
 
     def create
+        artist = Artist.find_by(id: session[:user_id])
         painting = Painting.create!(painting_params)
         render json: painting, status: :created
     end
