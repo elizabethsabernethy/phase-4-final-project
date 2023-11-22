@@ -22,36 +22,6 @@ function App() {
   const {user, setUser, handleLogout} = useContext(UserContext);
   const {museums, setMuseums} = useContext(MuseumsContext);
 
-
-  function addPaintingFromForm(painting){ 
-    const updatedPaintings = [...user.paintings, painting]
-    const museum = user.museums.find((museum)=> museum.id === painting.museum_id)
-    let updatedMuseums = [...user.museums];
-    if(!museum){
-      const newMuseum = museums.find((museum)=> museum.id === painting.museum_id)
-      updatedMuseums = [...user.museums, newMuseum]
-    }
-    const updatedUser = {
-      id: user.id,
-      name: user.name,
-      username: user.username,
-      paintings: updatedPaintings,
-      museums: updatedMuseums
-    }
-    setUser(updatedUser)
-    
-    const museumOfNewPainting = museums.find((museum)=>{
-      return museum.id === painting.museum_id
-    })
-    museumOfNewPainting.paintings.push(painting)
-    const artist = museumOfNewPainting.artists.find((artist)=>{
-      return artist.id === painting.artist_id
-    })
-    if(artist === undefined){
-      museumOfNewPainting.artists.push(user)
-    }
-}
-
 function handleDeletePainting(deletedPainting){
   const updatedPaintings= user.paintings.filter((painting) => painting.id !== deletedPainting.id);
   const updatedMuseums= user.museums.filter((museum)=> museum.id !== deletedPainting.museum_id)
@@ -140,7 +110,7 @@ function onEditPainting(editedPainting){
                 <Route path='/museums/:museum_id/paintings' element={<MuseumPaintingCollection/>}/>
                 <Route path='/museums/new' element={<AddMuseumForm/>}/>
                 <Route path='/profile' element={<User/>}/>
-                <Route path='/profile/:user_id/paintings/new' element={<AddPaintingForm addPaintingFromForm={addPaintingFromForm}/>}/>
+                <Route path='/profile/:user_id/paintings/new' element={<AddPaintingForm/>}/>
                 <Route path='/profile/:user_id/paintings' element={<UserPaintingCollection onDeletePainting={handleDeletePainting} onEditPainting={handleEditPainting}/>}/>
                 <Route path='/profile/:user_id/paintings/:painting_id/edit' element={<EditPainting painting={paintingInEdit} onEditPainting={onEditPainting}/>}/>
                 <Route path="/login" element={<LoginOrSignupPage/>}/>

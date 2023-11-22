@@ -12,7 +12,7 @@ function AddPaintingForm({addPaintingFromForm}){
     const [description, setDescription] = useState("");
     const [museumValue, setMuseumValue] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const {user} = useContext(UserContext);
+    const {user, setUser} = useContext(UserContext);
     const {museums} = useContext(MuseumsContext);
     const user_id = user.id
   
@@ -35,6 +35,35 @@ function AddPaintingForm({addPaintingFromForm}){
         }
       });
     }
+
+    function addPaintingFromForm(painting){ 
+      const updatedPaintings = [...user.paintings, painting]
+      const museum = user.museums.find((museum)=> museum.id === painting.museum_id)
+      let updatedMuseums = [...user.museums];
+      if(!museum){
+        const newMuseum = museums.find((museum)=> museum.id === painting.museum_id)
+        updatedMuseums = [...user.museums, newMuseum]
+      }
+      const updatedUser = {
+        id: user.id,
+        name: user.name,
+        username: user.username,
+        paintings: updatedPaintings,
+        museums: updatedMuseums
+      }
+      setUser(updatedUser)
+      
+      const museumOfNewPainting = museums.find((museum)=>{
+        return museum.id === painting.museum_id
+      })
+      museumOfNewPainting.paintings.push(painting)
+      const artist = museumOfNewPainting.artists.find((artist)=>{
+        return artist.id === painting.artist_id
+      })
+      if(artist === undefined){
+        museumOfNewPainting.artists.push(user)
+      }
+  }
 
   
     return(
