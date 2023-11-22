@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext} from "react";
-import { useNavigate, useResolvedPath } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import Home from "./Home";
 import Museums from "./Museums";
 import NavBar from "./NavBar";
@@ -14,18 +14,14 @@ import UserPaintingCollection from "./UserPaintingCollection";
 import AddMuseumForm from "./AddMuseumForm";
 import EditPainting from "./EditPainting";
 import { UserContext } from "./context/UserContext";
+import { MuseumsContext } from "./context/MuseumsContext";
 
 function App() {
-  const [museums, setMuseums] = useState([]);
   const [paintingInEdit, setPaintingInEdit] = useState({});
   const navigate = useNavigate()
   const {user, setUser, handleLogout} = useContext(UserContext);
+  const {museums, setMuseums} = useContext(MuseumsContext);
 
-  useEffect(()=>{
-    fetch('http://localhost:3000/museums')
-    .then((resp) => resp.json())
-    .then((museums) => setMuseums(museums))
-},[])
 
   function addPaintingFromForm(painting){ 
     const updatedPaintings = [...user.paintings, painting]
