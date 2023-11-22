@@ -52,10 +52,6 @@ function App() {
     }
 }
 
-function addMuseumFromForm(museum){
-  setMuseums([...museums, museum])
-}
-
 function handleDeletePainting(deletedPainting){
   const updatedPaintings= user.paintings.filter((painting) => painting.id !== deletedPainting.id);
   const updatedMuseums= user.museums.filter((museum)=> museum.id !== deletedPainting.museum_id)

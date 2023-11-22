@@ -34,6 +34,10 @@ function AddMuseumForm({addMuseumFromForm}){
         });
       }
 
+      function addMuseumFromForm(museum){
+        setMuseums([...museums, museum])
+      }
+
     return(
         <div>
           {user.id? 
