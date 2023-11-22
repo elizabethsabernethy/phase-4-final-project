@@ -18,8 +18,32 @@ function UserPaintingCollection({onDeletePainting, onEditPainting}){
         fetch(`/artists/${user.id}/paintings/${painting.id}`, {
           method: "DELETE",
           })
-            .then(() => onDeletePainting(painting));
+            .then(() => handleDeletePainting(painting));
     }
+    function handleDeletePainting(deletedPainting){
+        const updatedPaintings= user.paintings.filter((painting) => painting.id !== deletedPainting.id);
+        const updatedMuseums= user.museums.filter((museum)=> museum.id !== deletedPainting.museum_id)
+        const updatedUser = {
+          id: user.id,
+          name: user.name,
+          username: user.username,
+          paintings: [...updatedPaintings],
+          museums: [...updatedMuseums]
+        }
+      
+        setUser(updatedUser)
+      
+        const museumOfPainting = museums.find((museum)=>{
+          return museum.id === deletedPainting.museum_id
+        })
+      
+        const updatedMuseumPaintings= museumOfPainting.paintings.filter((painting)=> painting.id !== deletedPainting.id)
+        const updatedMuseumArtists= museumOfPainting.artists.filter((artist)=> artist.id !== deletedPainting.artist_id)
+        
+        museumOfPainting.paintings = updatedMuseumPaintings;
+        museumOfPainting.artists = updatedMuseumArtists;
+        
+      }
 
     return(
         <div>
