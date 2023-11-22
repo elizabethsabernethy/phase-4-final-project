@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "./context/UserContext";
+import { MuseumsContext } from "./context/MuseumsContext";
 
-function EditPainting({painting, museums, onEditPainting}){
+function EditPainting({painting, onEditPainting}){
 
     const navigate = useNavigate()
 
@@ -12,6 +13,7 @@ function EditPainting({painting, museums, onEditPainting}){
     const [paintingMuseum, setPaintingMuseum] = useState(painting.museum_id);
     const [isLoading, setIsLoading] = useState(false);
     const {user} = useContext(UserContext);
+    const {museums} = useContext(MuseumsContext);
   
     function handleSave(e) {
       e.preventDefault();

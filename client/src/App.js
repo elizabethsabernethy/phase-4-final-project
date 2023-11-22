@@ -146,7 +146,7 @@ function onEditPainting(editedPainting){
                 <Route path='/profile' element={<User/>}/>
                 <Route path='/profile/:user_id/paintings/new' element={<AddPaintingForm addPaintingFromForm={addPaintingFromForm}/>}/>
                 <Route path='/profile/:user_id/paintings' element={<UserPaintingCollection onDeletePainting={handleDeletePainting} onEditPainting={handleEditPainting}/>}/>
-                <Route path='/profile/:user_id/paintings/:painting_id/edit' element={<EditPainting museums={museums} painting={paintingInEdit} onEditPainting={onEditPainting}/>}/>
+                <Route path='/profile/:user_id/paintings/:painting_id/edit' element={<EditPainting painting={paintingInEdit} onEditPainting={onEditPainting}/>}/>
                 <Route path="/login" element={<LoginOrSignupPage/>}/>
                 <Route path="/logout" element={<Logout/>}/> 
                 <Route path='*' element={<PageNotFound/>}/>
