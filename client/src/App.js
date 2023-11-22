@@ -138,7 +138,7 @@ function onEditPainting(editedPainting){
                 <Route path='/' element={<Home/>} />
                 <Route path='/museums' element={<Museums/>}/>
                 <Route path='/museums/:museum_id/paintings' element={<MuseumPaintingCollection/>}/>
-                <Route path='/museums/new' element={<AddMuseumForm addMuseumFromForm={addMuseumFromForm}/>}/>
+                <Route path='/museums/new' element={<AddMuseumForm/>}/>
                 <Route path='/profile' element={<User/>}/>
                 <Route path='/profile/:user_id/paintings/new' element={<AddPaintingForm addPaintingFromForm={addPaintingFromForm}/>}/>
                 <Route path='/profile/:user_id/paintings' element={<UserPaintingCollection onDeletePainting={handleDeletePainting} onEditPainting={handleEditPainting}/>}/>
