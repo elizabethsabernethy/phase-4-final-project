@@ -140,7 +140,7 @@ function onEditPainting(editedPainting){
          
         <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='/museums' element={<Museums museums={museums}/>}/>
+                <Route path='/museums' element={<Museums/>}/>
                 <Route path='/museums/:museum_id/paintings' element={<MuseumPaintingCollection museums={museums}/>}/>
                 <Route path='/museums/new' element={<AddMuseumForm addMuseumFromForm={addMuseumFromForm}/>}/>
                 <Route path='/profile' element={<User/>}/>
