@@ -51,51 +51,6 @@ function handleEditPainting(painting){
   setPaintingInEdit(painting)
 }
 
-function onEditPainting(editedPainting){
-  const updatedPaintings = user.paintings.map((painting) => {
-    if (painting.id === editedPainting.id) {
-      return editedPainting;
-    } else {
-      return painting;
-    }
-  });
-  const museum = user.museums.find((museum)=>{
-    return museum.id === editedPainting.museum_id
-  })
-  if(museum === undefined){
-    const newMuseum = museums.find((museum)=>{
-      return museum.id === editedPainting.museum_id
-    })
-    user.museums.push(newMuseum)
-  }
-  const updatedUser = {
-    id: user.id,
-    name: user.name,
-    username: user.username,
-    paintings: [...updatedPaintings],
-    museums: [...user.museums]
-  }
-  setUser(updatedUser)
-
-  const museumOfNewPainting = museums.find((museum)=>{
-    return museum.id === editedPainting.museum_id
-  })
-
-  const paintings = museumOfNewPainting.paintings.filter((painting)=>{
-    return painting.id !== editedPainting.id
-  })
-
-  museumOfNewPainting.paintings = paintings
-  museumOfNewPainting.paintings.push(editedPainting)
-
-  const artist = museumOfNewPainting.artists.find((artist)=>{
-    return artist.id === editedPainting.artist_id
-  })
-  if(artist === undefined){
-    museumOfNewPainting.artists.push(user)
-  }
-}
-
   return (
     <div>
       <div id="app-header">
@@ -112,7 +67,7 @@ function onEditPainting(editedPainting){
                 <Route path='/profile' element={<User/>}/>
                 <Route path='/profile/:user_id/paintings/new' element={<AddPaintingForm/>}/>
                 <Route path='/profile/:user_id/paintings' element={<UserPaintingCollection onDeletePainting={handleDeletePainting} onEditPainting={handleEditPainting}/>}/>
-                <Route path='/profile/:user_id/paintings/:painting_id/edit' element={<EditPainting painting={paintingInEdit} onEditPainting={onEditPainting}/>}/>
+                <Route path='/profile/:user_id/paintings/:painting_id/edit' element={<EditPainting painting={paintingInEdit}/>}/>
                 <Route path="/login" element={<LoginOrSignupPage/>}/>
                 <Route path="/logout" element={<Logout/>}/> 
                 <Route path='*' element={<PageNotFound/>}/>

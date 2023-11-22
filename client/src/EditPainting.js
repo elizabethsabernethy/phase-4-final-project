@@ -12,7 +12,7 @@ function EditPainting({painting, onEditPainting}){
     const [paintingDescription, setPaintingDescription] = useState(painting.description);
     const [paintingMuseum, setPaintingMuseum] = useState(painting.museum_id);
     const [isLoading, setIsLoading] = useState(false);
-    const {user} = useContext(UserContext);
+    const {user, setUser} = useContext(UserContext);
     const {museums} = useContext(MuseumsContext);
   
     function handleSave(e) {
@@ -38,6 +38,51 @@ function EditPainting({painting, onEditPainting}){
           resp.json().then((err) => alert(err.error));
         }
       });
+    }
+
+    function onEditPainting(editedPainting){
+      const updatedPaintings = user.paintings.map((painting) => {
+        if (painting.id === editedPainting.id) {
+          return editedPainting;
+        } else {
+          return painting;
+        }
+      });
+      const museum = user.museums.find((museum)=>{
+        return museum.id === editedPainting.museum_id
+      })
+      if(museum === undefined){
+        const newMuseum = museums.find((museum)=>{
+          return museum.id === editedPainting.museum_id
+        })
+        user.museums.push(newMuseum)
+      }
+      const updatedUser = {
+        id: user.id,
+        name: user.name,
+        username: user.username,
+        paintings: [...updatedPaintings],
+        museums: [...user.museums]
+      }
+      setUser(updatedUser)
+    
+      const museumOfNewPainting = museums.find((museum)=>{
+        return museum.id === editedPainting.museum_id
+      })
+    
+      const paintings = museumOfNewPainting.paintings.filter((painting)=>{
+        return painting.id !== editedPainting.id
+      })
+    
+      museumOfNewPainting.paintings = paintings
+      museumOfNewPainting.paintings.push(editedPainting)
+    
+      const artist = museumOfNewPainting.artists.find((artist)=>{
+        return artist.id === editedPainting.artist_id
+      })
+      if(artist === undefined){
+        museumOfNewPainting.artists.push(user)
+      }
     }
 
     return(
