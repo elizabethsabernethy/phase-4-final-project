@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { UserContext } from "./context/UserContext";
+import { MuseumsContext } from "./context/MuseumsContext";
 
-function AddPaintingForm({museums, addPaintingFromForm}){
+function AddPaintingForm({addPaintingFromForm}){
 
     const navigate = useNavigate()
 
@@ -12,6 +13,7 @@ function AddPaintingForm({museums, addPaintingFromForm}){
     const [museumValue, setMuseumValue] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const {user} = useContext(UserContext);
+    const {museums} = useContext(MuseumsContext);
     const user_id = user.id
   
     function handleSubmit(e) {
