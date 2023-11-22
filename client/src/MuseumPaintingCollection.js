@@ -1,11 +1,14 @@
 import { useLocation } from "react-router-dom";
 import Painting from "./Painting";
+import { useContext } from "react";
+import { MuseumsContext } from "./context/MuseumsContext";
 
-function MuseumPaintingCollection({museums}){
+function MuseumPaintingCollection(){
     
 const location = useLocation();
 const path = location.pathname
 const museum_id = parseInt(path.split('/')[2])
+const{museums} = useContext(MuseumsContext);
 
 const museum = museums.find((museum)=>{
     return museum.id === museum_id
